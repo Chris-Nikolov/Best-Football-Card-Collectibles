@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from djangoBestFootballCardCollectibles.hidden_files.secret import DJANGO_SECRET_KEY, DB_PASSWORD
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(dz-*ien56ww5=#l&wh$vk=t7+#37%tq1+qw(6dd4n#4bb2qxq'
+SECRET_KEY = DJANGO_SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,7 +87,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "bfcc_db",
         "USER": "santos334",
-        "PASSWORD": "legado245",
+        "PASSWORD": DB_PASSWORD,
         "HOST": "localhost",
         "PORT": "5432",
     }
