@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 from djangoBestFootballCardCollectibles.accounts.validators import name_validator, phone_validator
+from djangoBestFootballCardCollectibles.cards.models import Card
 
 
 # Create your models here.
@@ -77,4 +78,4 @@ class Profile(models.Model):
 
     phone_number = models.CharField(verbose_name="Phone Number", validators=[phone_validator], blank=True, null=True)
 
-    #  TODO add foreign key to cards
+    cards = models.ManyToManyField(Card, verbose_name="Cards", blank=True, null=True)
