@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 CUSTOM_APPS = [
-    'djangoBestFootballCardCollectibles.accounts'
+    'djangoBestFootballCardCollectibles.accounts',
+    'djangoBestFootballCardCollectibles.cards',
 ]
 
 INSTALLED_APPS = [

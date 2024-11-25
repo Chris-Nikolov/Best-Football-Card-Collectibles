@@ -2,9 +2,9 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
-from djangoBestFootballCardCollectibles.accounts.validators import name_validator
+from djangoBestFootballCardCollectibles.accounts.validators import name_validator, phone_validator
 
 
 # Create your models here.
@@ -45,7 +45,7 @@ class BFCCUserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class BFCCUser(AbstractBaseUser):
+class BFCCUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(unique=True)
 
     is_active = models.BooleanField(default=True)
@@ -64,11 +64,17 @@ class BFCCUser(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(BFCCUser, primary_key=True, on_delete=models.CASCADE)
+
     first_name = models.CharField(validators=[name_validator, MaxLengthValidator(25), MinLengthValidator(2)],
                                   verbose_name="First Name", null=True, blank=True)
     last_name = models.CharField(validators=[name_validator, MaxLengthValidator(25), MinLengthValidator(2)],
                                  verbose_name="Last Name", null=True, blank=True)
     profile_picture = models.ImageField(upload_to="profile_pictures", verbose_name="Profile Picture",
-                                        blank=True, null=True)
+                                        blank=True, null=True)  # TODO CHECK LATER
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
-    #cards = models.ForeignKey()
+
+    address = models.TextField(verbose_name="Address", blank=True, null=True)
+
+    phone_number = models.CharField(verbose_name="Phone Number", validators=[phone_validator], blank=True, null=True)
+
+    #  TODO add foreign key to cards
