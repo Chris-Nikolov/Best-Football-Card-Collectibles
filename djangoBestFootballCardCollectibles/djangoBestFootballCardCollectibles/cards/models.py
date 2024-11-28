@@ -1,8 +1,8 @@
 from django.core.validators import MaxLengthValidator, MinValueValidator
 from django.db import models
-
+from cloudinary.models import CloudinaryField
 from djangoBestFootballCardCollectibles.accounts.models import BFCCUser
-
+from djangoBestFootballCardCollectibles.cards.validators import validate_image_size
 
 # Create your models here.
 
@@ -22,6 +22,5 @@ class Card(models.Model):
     brand = models.CharField(verbose_name="Brand", choices=BRAND_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(BFCCUser, verbose_name="Owner", on_delete=models.CASCADE)
-    image = models.ImageField(verbose_name="Image", upload_to="cards/%Y/%m/%d", blank=True, null=True)
-    # TODO CHECK LATER
-
+    is_approved = models.BooleanField(verbose_name="Approved", default=True)
+    image = CloudinaryField('image', blank=True, null=True, validators=[validate_image_size])

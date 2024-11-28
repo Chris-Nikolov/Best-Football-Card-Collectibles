@@ -1,10 +1,12 @@
+from cloudinary.models import CloudinaryField
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.core.validators import MaxLengthValidator, MinLengthValidator
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
-from djangoBestFootballCardCollectibles.accounts.validators import name_validator, phone_validator
+from djangoBestFootballCardCollectibles.accounts.validators import (name_validator, phone_validator,
+                                                                    validate_profile_picture_size,)
 from djangoBestFootballCardCollectibles.cards.models import Card
 
 
@@ -70,12 +72,9 @@ class Profile(models.Model):
                                   verbose_name="First Name", null=True, blank=True)
     last_name = models.CharField(validators=[name_validator, MaxLengthValidator(25), MinLengthValidator(2)],
                                  verbose_name="Last Name", null=True, blank=True)
-    profile_picture = models.ImageField(upload_to="profile_pictures", verbose_name="Profile Picture",
-                                        blank=True, null=True)  # TODO CHECK LATER
+    profile_picture = CloudinaryField('image', blank=True, null=True, validators=[validate_profile_picture_size])
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
 
     address = models.TextField(verbose_name="Address", blank=True, null=True)
 
     phone_number = models.CharField(verbose_name="Phone Number", validators=[phone_validator], blank=True, null=True)
-
-    cards = models.ManyToManyField(Card, verbose_name="Cards", blank=True, null=True)
