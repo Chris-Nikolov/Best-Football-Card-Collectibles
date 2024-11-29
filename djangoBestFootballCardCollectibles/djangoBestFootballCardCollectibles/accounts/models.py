@@ -7,10 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 from djangoBestFootballCardCollectibles.accounts.validators import (name_validator, phone_validator,
                                                                     validate_profile_picture_size,)
-from djangoBestFootballCardCollectibles.cards.models import Card
 
-
-# Create your models here.
 
 class BFCCUserManager(BaseUserManager):
     use_in_migrations = True

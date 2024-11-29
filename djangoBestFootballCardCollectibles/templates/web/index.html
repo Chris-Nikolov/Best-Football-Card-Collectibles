@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="" >
+    <link rel="stylesheet" href="../CSS/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project2 My card site</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<header>
+    <div class="all-navigation">
+        <div class="conteiner">
+            <a href="#" id="logo" class="nav-link logo" title="Best Football Card Collectibles">BFCC</a>
+            <div class="couple-search-top">
+                <input class="search-box" type="text" placeholder="Search card...">
+                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <nav id="navbar" class="navbar-conteiner nav-link">
+            <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
+
+            <!-- If you havent profile -->
+            <a href="#" class="navbar-item nav-link" id="login">Login</a>
+
+            <!-- If you HAVE profile  -->
+            <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
+            <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"> <span class="message-icon-notification">3</span> </i></a>
+
+            <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile"><!--<i class="fa-solid fa-circle-user"></i>--> <img class="navbar-profile-picture" src="https://cdn.pixabay.com/photo/2016/11/23/01/11/animal-1851634_640.jpg"> </a>
+            <a href="#" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>    
+            </nav>
+        </div>
+    </div>
+</header>
+<body>
+    <div class="search-image">
+        <img src="https://cdn.pixabay.com/photo/2022/01/13/00/08/austria-6934184_640.jpg" alt="Search Image" class="background-img">
+        <div id="search-bar">
+            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit</h1>
+            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quae impedit veritatis dolorum itaque repudiandae.</h4>
+            <div class="couple-search">
+                <input class="search-box" type="text" placeholder="Search..." title="Searsh">
+                <button class="search-button" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="generic-tags"> 
+        <div class="genre">
+            <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#">Cards</a>
+            <a href="#">Figures</a>
+            <a href="#">Toys</a>
+            <a href="#">Board Games</a>
+        </div>
+    </div>
+
+    <div class="specific-tags"> 
+        <div class="subcategories">
+            <a href="#">Football</a>
+            <a href="#">Wrestling</a>
+            <a href="#">Comics</a>
+            <a href="#">Anime</a>
+            <a href="#">Singer</a>
+        </div>
+        <select class="sort" name="sorting" id="sort">
+            <option value="Newest" selected >Newest</option>
+            <option value="Oldest">Oldest</option>
+            <option value="Cheapest">Cheapest</option>
+            <option value="Most exspensive">Most exspensive</option>
+            <option value="By default">By default<option>
+        </select>
+    </div>
+
+    <div class="recommend-card" id="recommend-card">
+        <!-- If no result/ no items-->
+        <div class="no-result"><h1>No Result</h1></div>
+         
+         <a class="link-card" href="#">
+            <ul class="border-card">
+                <div class="all-info-card">
+                    <img src="https://cdn.pixabay.com/photo/2023/12/08/23/46/cat-8438334_640.jpg" class="image-card" alt="Card Image">
+                    <div class="group-price-status">
+                        <li class="price-card">$767,98</li>
+                        <li class="status-card">For Sale</li>
+                    </div>
+                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
+                    <ul class="seller-info">
+                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
+                            <div class="seller-contact">
+                                <li class="seller-name">Liliq</li>
+                                <li class="seller-time-publication">20.11 14:55</li>
+                            </div>
+                    </ul>
+                </div>
+            </ul>
+        </a>
+
+        <a class="link-card" href="#">
+            <ul class="border-card">
+                <div class="all-info-card">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/13/10/31/monkey-2139295_640.jpg" class="image-card" alt="Card Image">
+                    <div class="group-price-status">
+                        <li class="price-card">$767,98</li>
+                        <li class="status-card">For sale</li>
+                    </div>
+                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
+                    <ul class="seller-info">
+                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
+                            <div class="seller-contact">
+                                <li class="seller-name">Liliq</li>
+                                <li class="seller-time-publication">20.11 14:55</li>
+                            </div>
+                    </ul>
+                </div>
+            </ul>
+        </a>
+
+        <a class="link-card" href="#">
+            <ul class="border-card">
+                <div class="all-info-card">
+                    <img src="https://cdn.pixabay.com/photo/2020/07/21/01/33/cute-5424776_640.jpg" class="image-card" alt="Card Image">
+                    <div class="group-price-status">
+                        <li class="price-card">$767,98</li>
+                        <li class="status-card">For sale</li>
+                    </div>
+                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
+                    <ul class="seller-info">
+                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
+                            <div class="seller-contact">
+                                <li class="seller-name">Liliq</li>
+                                <li class="seller-time-publication">20.11 14:55</li>
+                            </div>
+                    </ul>
+                </div>
+            </ul>
+        </a>
+
+        <a class="link-card" href="#">
+            <ul class="border-card">
+                <div class="all-info-card">
+                    <img src="https://cdn.pixabay.com/photo/2023/08/11/12/41/capuchin-8183528_640.jpg" class="image-card" alt="Card Image">
+                    <div class="group-price-status">
+                        <li class="price-card">$767,98</li>
+                        <li class="status-card">For sale</li>
+                    </div>
+                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
+                    <ul class="seller-info">
+                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
+                            <div class="seller-contact">
+                                <li class="seller-name">Liliq</li>
+                                <li class="seller-time-publication">20.11 14:55</li>
+                            </div>
+                    </ul>
+                </div>
+            </ul>
+        </a>
+       
+    </div>
+
+    
+</body>
+<footer>
+    <div class="footer-all-content">
+        <div class="f-logo-social">
+            <a class="footer-logo" href="#" title="Best Football Card Collectibles">Best Football Card Collectibles</a>
+            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
+            <aside class="social-media">
+                <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
+                <a href="#"><i title="GitHub" class="fa-brands fa-github"></i></a>
+                <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></i></a>
+                <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></i></a>
+            </aside>
+        </div>
+        <div class="footer-links">
+            <div class="discover">
+                <span>Discover</span>
+                <a href="#">Popular Cards</a>
+            </div>
+            <div class="community">
+                <span>Community</span>
+                <a href="#">Blog</a>
+                <a href="#">Forum</a>
+                <a href="#">Creators</a>
+            </div>
+            <div class="about">
+                <span>About</span>
+                <a href="#">About Us</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+    
+</footer>
+<p class="copyright">&copy; 2024</p>
+
+
+<script src="../JS/script.js"></script>
+
+</html>

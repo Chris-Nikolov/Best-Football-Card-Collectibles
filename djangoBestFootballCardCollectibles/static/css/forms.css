@@ -1,0 +1,132 @@
+.container-below-navbar{
+    margin: auto;
+    padding-top: 100px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.form-container{
+
+    width: 500px;
+    min-width: 300px;
+    min-height: 500px;
+    max-width: 700px;
+    max-height: 1100px;
+
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 5, 9, 0.2);
+    -webkit-backdrop-filter: blur(5px);   
+    justify-content: center;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    padding: 40px;
+    gap: 20px;
+    box-shadow: 1px 1px 40px rgba(5, 7, 8, 0.3);    
+}
+
+.form-container{
+    background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+    background-size: 300% 300%;
+    animation: color 90s ease-in-out infinite;
+}
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+
+    }
+    100%{
+        background-position: 0 50%;
+
+    }
+}
+
+
+.reg-title,
+.login-title{
+    margin-bottom: 20px;
+}
+
+.form-container h1{
+    margin-bottom: 50px;
+    text-align: center;
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 20px rgba(46, 51, 55, 0.4);
+}
+
+
+.form-group{
+    width: 100%;
+    border-radius: 10px;
+    color: white;
+    /*box-shadow: 2px 2px 30px rgba(5, 7, 8, 0.5);*/
+    display: flex;
+    flex-direction: column;
+    
+    gap: 5px;
+}
+.form-group{
+    text-align: start;
+}
+
+.form-input,
+.submit-button{
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    border: none;
+}
+
+.submit-button{
+    margin: 30px 0px;
+    cursor: pointer;
+    transition: ease 0.3s;
+    color: white;
+    background: none;
+    border: white solid 1px;
+
+}
+.submit-button:hover{
+    background: white;
+    color: black;
+}
+.submit-button:active{
+    opacity: 0.7;
+}
+
+a{
+    color: white;
+    transition: ease 0.2s;
+}
+
+
+.login,
+.forget,
+.register,
+.signin{
+    color: rgb(37, 34, 34);
+
+}
+.login a:hover, 
+.forget a:hover, 
+.register a:hover,
+.signin a:hover{
+    opacity: 0.6;
+}
+
+/*Upload Card Page */
+.uplC-form-insert-btn{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+textarea{
+    resize: none;
+}
+
+
+

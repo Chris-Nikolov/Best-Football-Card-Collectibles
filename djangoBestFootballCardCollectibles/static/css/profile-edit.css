@@ -1,0 +1,164 @@
+.edit-window{
+    padding: 20px 40px;
+    letter-spacing: 1px;
+    
+}
+.all-form-area{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.avatar-area{
+    display: flex;
+    margin-top: 20px;
+    gap: 30px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.account-info{
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+}
+.cont-av-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.avatar-buttons{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Chanhe Avatar */
+.file-upload-img img{
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    object-fit: cover;
+}
+.file-image{
+    display: none;
+}
+
+.gr-form-acc{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    
+}
+.gr-form-acc label{
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.6);
+
+}
+.gr-form-acc input,
+.gr-form-acc .textarea-box,
+.avatar-delete-btn,
+.avatar-change-btn,
+.cancel-btn,
+.update-btn{
+    padding: 10px 20px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-size: 1.1em;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+.avatar-delete-btn,
+.avatar-change-btn,
+.cancel-btn,
+.update-btn{
+    outline: 1px solid #00A0F3;
+    background: transparent;
+    color: #00A0F3;
+    font-weight: 500;
+    text-align:justify;
+    cursor: pointer;
+}
+.update-btn{
+    background-color: #00A0F3;
+    color: white;
+}
+
+.avatar-delete-btn,
+.avatar-change-btn{
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.cancel-btn,
+.update-btn{
+    padding: 10px 45px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.collum-1,
+.collum-2,
+.collum-3{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.finish-buttons{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.cancel-btn{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+.cancel-btn:hover,
+.avatar-delete-btn:hover,
+.avatar-change-btn:hover{
+    background-color: rgba(172, 212, 227, 0.2);
+    color: rgb(37, 131, 238);
+}
+.update-btn:hover{
+    background-color: white;
+    color: #00A0F3;
+}
+.update-btn:active,
+.cancel-btn:active{
+    background-color: rgba(37, 131, 238, 0.7);
+}
+
+.fa-trash-can,
+.fa-image{
+    color:#00A0F3;
+    font-size: 0.9em;
+}
+
+.delete-account{
+    background: transparent;
+    outline: 1px solid rgba(128, 128, 128, 0.4);
+}
+
+.for-edit-profile{
+    padding: 0px;
+    display: inline-block;
+    font-size: 1em;
+}
