@@ -75,3 +75,4 @@ class Profile(models.Model):
     address = models.TextField(verbose_name="Address", blank=True, null=True)
 
     phone_number = models.CharField(verbose_name="Phone Number", validators=[phone_validator], blank=True, null=True)
+

@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="" >
     <link rel="stylesheet" href="../CSS/main.css">
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project2 My card site</title>
 
@@ -13,7 +11,7 @@
 </head>
 <body>
     <div class="all-navigation">
-        <div class="conteiner">
+        <div class="container">
             <a href="#" id="logo" class="nav-link" title="Best Football Cards">BFC</a>
             <div class="couple-search-top">
                 <input class="search-box" type="text" placeholder="Search card...">
@@ -22,7 +20,7 @@
             <nav id="navbar" class="navbar-conteiner nav-link">
             <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
 
-            <!-- If you havent profile -->
+            <!-- If you don't have a profile -->
             <a href="#" class="navbar-item nav-link" id="login">Login</a>
 
             <!-- If you HAVE profile  -->
@@ -36,9 +34,17 @@
     </div>
 
     <div class="container-below-navbar">
-        <form action="index.html" id="registration-form" class="form-container" method="post">
-            <h1 class="login-title">Login</h1>
 
+    
+        <form action="../web/index.html" id="registration-form" class="form-container" method="post">
+            <h1 class="reg-title">Registration</h1>
+
+            <div class="form-group"> 
+                <label for="username">Username</label>
+                <input class="form-input" type="text" id="username" name="username" placeholder="ivan">
+            </div>
+            
+            
             <div class="form-group">
                 <label for="email">Email</label>
                 <input class="form-input" type="email" id="email" name="email" placeholder="ivan@gmail.com">
@@ -48,18 +54,20 @@
                 <label for="password">Password</label>
                 <input class="form-input" type="password" id="password" name="password" placeholder="*******">
             </div>
-            <div class="forget">
+
+            <div class="login">
                 <label for=""><input type="checkbox">  Remember Me  <a href="#">Forget Password</a></label>
             </div>
             
             
             
-            <button type="submit" class="submit-button">Login</button>
+            <button type="submit" class="submit-button">Registration</button>
             
-            <div class="register">
-                <p>Don't have a account <a href="registration.html">Registration</a></p>
+            <div class="signin">
+                <p> Already have an account?<a href="#"> Sign in</a></p>
             </div>
         </form>
+
     </div>
     
 
@@ -67,7 +75,7 @@
            
 
     
-</body>
+
 <footer>
     <div class="footer-all-content">
         <div class="f-logo-social">
@@ -75,9 +83,9 @@
             <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
             <aside class="social-media">
                 <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
-                <a href="#"><i title="Linkedin" class="fa-brands fa-linkedin"></i></i></a>
-                <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></i></a>
-                <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></i></a>
+                <a href="#"><i title="Linkedin" class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></a>
+                <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></a>
             </aside>
         </div>
         <div class="footer-links">
@@ -104,5 +112,5 @@
 
 
 <script src="../JS/script.js"></script>
-
+</body>
 </html>

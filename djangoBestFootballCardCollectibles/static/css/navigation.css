@@ -31,15 +31,15 @@
     position: relative;
 }
 
-.conteiner a, 
-.conteiner nav,
+.container a,
+.container nav,
 #search-bar{
     color: white;
     text-shadow: 2px 2px 10px rgba(145, 141, 141, 0.5),
      -2px -2px 10px rgba(145, 141, 141, 0.5);
 }
 
-.conteiner{
+.container{
     transition: background-color 0.3s, color 0.3s;
     margin: auto 0;
     height: auto;
