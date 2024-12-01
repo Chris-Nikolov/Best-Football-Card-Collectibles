@@ -20,6 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('djangoBestFootballCardCollectibles.web.urls')),
-    path('profile', include('djangoBestFootballCardCollectibles.accounts.urls')),
-    path('card', include('djangoBestFootballCardCollectibles.cards.urls')),
+    path('profile/', include('djangoBestFootballCardCollectibles.accounts.urls')),
+    path('card/', include('djangoBestFootballCardCollectibles.cards.urls')),
 ]

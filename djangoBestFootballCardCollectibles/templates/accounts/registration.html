@@ -1,67 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="" >
-    <link rel="stylesheet" href="../CSS/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project2 My card site</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
+{% extends 'base.html' %}
+{% block main_content %}
 <body>
-    <div class="all-navigation">
-        <div class="container">
-            <a href="#" id="logo" class="nav-link" title="Best Football Cards">BFC</a>
-            <div class="couple-search-top">
-                <input class="search-box" type="text" placeholder="Search card...">
-                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <nav id="navbar" class="navbar-conteiner nav-link">
-            <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
-
-            <!-- If you don't have a profile -->
-            <a href="#" class="navbar-item nav-link" id="login">Login</a>
-
-            <!-- If you HAVE profile  -->
-            <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
-            <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"></i></a>
-
-            <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile"><i class="fa-solid fa-circle-user"></i></a>
-            <a href="#" class="navbar-item nav-link" id="upload"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>    
-            </nav>
-        </div>
-    </div>
+    
 
     <div class="container-below-navbar">
 
     
-        <form action="../web/index.html" id="registration-form" class="form-container" method="post">
+        <form action="{% url 'register' %}" id="registration-form" class="form-container" method="post">
             <h1 class="reg-title">Registration</h1>
 
-            <div class="form-group"> 
-                <label for="username">Username</label>
-                <input class="form-input" type="text" id="username" name="username" placeholder="ivan">
-            </div>
+           {{ form }}
             
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="ivan@gmail.com">
-            </div>
-        
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input class="form-input" type="password" id="password" name="password" placeholder="*******">
-            </div>
-
-            <div class="login">
-                <label for=""><input type="checkbox">  Remember Me  <a href="#">Forget Password</a></label>
-            </div>
             
             
             
             <button type="submit" class="submit-button">Registration</button>
+            {% csrf_token %}
             
             <div class="signin">
                 <p> Already have an account?<a href="#"> Sign in</a></p>
@@ -69,48 +23,4 @@
         </form>
 
     </div>
-    
-
-
-           
-
-    
-
-<footer>
-    <div class="footer-all-content">
-        <div class="f-logo-social">
-            <a class="footer-logo" href="#">BestFootballCard</a>
-            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
-            <aside class="social-media">
-                <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
-                <a href="#"><i title="Linkedin" class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></a>
-                <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></a>
-            </aside>
-        </div>
-        <div class="footer-links">
-            <div class="discover">
-                <span>Discover</span>
-                <a href="#">Popular Cards</a>
-            </div>
-            <div class="community">
-                <span>Community</span>
-                <a href="#">Blog</a>
-                <a href="#">Forum</a>
-                <a href="#">Creators</a>
-            </div>
-            <div class="about">
-                <span>About</span>
-                <a href="#">About Us</a>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
-    </div>
-    
-</footer>
-<p class="copyright">&copy; 2024</p>
-
-
-<script src="../JS/script.js"></script>
-</body>
-</html>
+{% endblock %}
