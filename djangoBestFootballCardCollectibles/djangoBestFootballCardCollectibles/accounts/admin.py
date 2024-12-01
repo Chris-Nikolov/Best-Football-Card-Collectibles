@@ -15,14 +15,14 @@ class BFCCUserAdmin(UserAdmin):
     form = BFCCUserChangeForm
     add_form = BFCCUserCreationForm
     model = UserModel
-    list_display = ('username', 'email', 'is_staff', 'is_active',)
-    search_fields = ('username', 'email')
-    ordering = ('username', 'email',)
-    fieldsets = (('Account', {'fields': ('username', 'email', 'password')}),
+    list_display = ('email', 'is_staff', 'is_active',)
+    search_fields = ('email',)
+    ordering = ('email',)
+    fieldsets = (('Account', {'fields': ('email', 'password')}),
                  ('Permissions', {'fields': ('is_staff', 'is_active', 'is_superuser', 'groups', 'user_permissions')}),)
     add_fieldsets = (
         ('Acc', {
             "classes": ('wide', 'collapse'),
-            "fields": ('username', 'email', 'password1', 'password2'),
+            "fields": ('email', 'password1', 'password2'),
         }),
     )

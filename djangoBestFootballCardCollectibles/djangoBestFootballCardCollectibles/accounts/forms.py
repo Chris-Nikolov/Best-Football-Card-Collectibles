@@ -10,7 +10,7 @@ UserModel = get_user_model()
 class BFCCUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = UserModel
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('email', 'password1', 'password2')
 
 
 class BFCCUserChangeForm(UserChangeForm):

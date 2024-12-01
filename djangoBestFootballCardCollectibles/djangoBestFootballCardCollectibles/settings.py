@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+
+from django.urls import reverse_lazy
+
 from djangoBestFootballCardCollectibles.hidden_files.secret import (DJANGO_SECRET_KEY, DB_PASSWORD,
                                                                     CLOUD_NAME, CLOUD_API_KEY, CLOUD_API_SECRET)
 
@@ -151,4 +154,6 @@ CLOUDINARY_STORAGE = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.BFCCUser'
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+LOGOUT_REDIRECT_URL = reverse_lazy('index')
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

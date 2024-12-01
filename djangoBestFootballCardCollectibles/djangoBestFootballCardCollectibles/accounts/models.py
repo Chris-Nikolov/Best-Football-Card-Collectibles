@@ -76,3 +76,7 @@ class Profile(models.Model):
 
     phone_number = models.CharField(verbose_name="Phone Number", validators=[phone_validator], blank=True, null=True)
 
+    description = models.TextField(verbose_name="Description", blank=True, null=True,
+                                   validators=[MaxLengthValidator(300)])
+
+
