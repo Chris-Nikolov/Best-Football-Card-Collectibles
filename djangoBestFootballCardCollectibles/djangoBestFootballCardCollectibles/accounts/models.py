@@ -79,4 +79,3 @@ class Profile(models.Model):
     description = models.TextField(verbose_name="Description", blank=True, null=True,
                                    validators=[MaxLengthValidator(300)])
 
-

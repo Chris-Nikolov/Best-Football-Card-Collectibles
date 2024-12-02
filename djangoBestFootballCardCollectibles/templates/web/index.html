@@ -4,8 +4,10 @@
     <div class="search-image">
         <img src="https://cdn.pixabay.com/photo/2022/01/13/00/08/austria-6934184_640.jpg" alt="Search Image" class="background-img">
         <div id="search-bar">
-            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit</h1>
-            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro quae impedit veritatis dolorum itaque repudiandae.</h4>
+            {% if user.is_authenticated and  user.profile.first_name%}
+            <h1>Hello, {{ user.profile.first_name }}!</h1>
+            {% endif %}
+            <h4>Check the best football cards! Your next favorite collectibles are waiting!</h4>
             <div class="couple-search">
                 <input class="search-box" type="text" placeholder="Search..." title="Searsh">
                 <button class="search-button" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
