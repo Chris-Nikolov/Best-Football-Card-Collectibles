@@ -14,6 +14,10 @@ from pathlib import Path
 
 from django.urls import reverse_lazy
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 from djangoBestFootballCardCollectibles.hidden_files.secret import (DJANGO_SECRET_KEY, DB_PASSWORD,
                                                                     CLOUD_NAME, CLOUD_API_KEY, CLOUD_API_SECRET)
 
@@ -146,11 +150,17 @@ STATICFILES_DIRS = (
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': CLOUD_NAME,
-    'API_KEY': CLOUD_API_KEY,
-    'API_SECRET': CLOUD_API_SECRET
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': CLOUD_NAME,
+#     'API_KEY': CLOUD_API_KEY,
+#     'API_SECRET': CLOUD_API_SECRET
+# }
+
+cloudinary.config(
+    cloud_name=CLOUD_NAME,
+    api_key=CLOUD_API_KEY,
+    api_secret=CLOUD_API_SECRET
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.BFCCUser'

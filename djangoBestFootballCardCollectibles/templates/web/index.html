@@ -9,7 +9,7 @@
             {% endif %}
             <h4>Check the best football cards! Your next favorite collectibles are waiting!</h4>
             <div class="couple-search">
-                <input class="search-box" type="text" placeholder="Search..." title="Searsh">
+                <input class="search-box" type="text" placeholder="Search..." title="Search">
                 <button class="search-button" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
@@ -43,88 +43,36 @@
     </div>
 
     <div class="recommend-card" id="recommend-card">
+        {% if not cards%}
         <!-- If no result/ no items-->
         <div class="no-result"><h1>No Result</h1></div>
-         
+        {% else %}
+         {% for card in cards%}
+         {% if card.is_for_sale %}
          <a class="link-card" href="#">
             <ul class="border-card">
                 <div class="all-info-card">
-                    <img src="https://cdn.pixabay.com/photo/2023/12/08/23/46/cat-8438334_640.jpg" class="image-card" alt="Card Image">
+                    <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
+
                     <div class="group-price-status">
-                        <li class="price-card">$767,98</li>
+                        <li class="price-card">{{ card.price }}</li>
                         <li class="status-card">For Sale</li>
                     </div>
-                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
+                    <li class="title-card">{{ card.title }}</li>
                     <ul class="seller-info">
                             <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
                             <div class="seller-contact">
-                                <li class="seller-name">Liliq</li>
-                                <li class="seller-time-publication">20.11 14:55</li>
+                                <li class="seller-name">{{ card.owner.profile.first_name}}</li>
+                                <li class="seller-time-publication">{{ card.created_at }}</li>
                             </div>
                     </ul>
                 </div>
             </ul>
         </a>
+        {% endif %}
+     {% endfor %}
+    {% endif %}
 
-        <a class="link-card" href="#">
-            <ul class="border-card">
-                <div class="all-info-card">
-                    <img src="https://cdn.pixabay.com/photo/2017/03/13/10/31/monkey-2139295_640.jpg" class="image-card" alt="Card Image">
-                    <div class="group-price-status">
-                        <li class="price-card">$767,98</li>
-                        <li class="status-card">For sale</li>
-                    </div>
-                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                    <ul class="seller-info">
-                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                            <div class="seller-contact">
-                                <li class="seller-name">Liliq</li>
-                                <li class="seller-time-publication">20.11 14:55</li>
-                            </div>
-                    </ul>
-                </div>
-            </ul>
-        </a>
-
-        <a class="link-card" href="#">
-            <ul class="border-card">
-                <div class="all-info-card">
-                    <img src="https://cdn.pixabay.com/photo/2020/07/21/01/33/cute-5424776_640.jpg" class="image-card" alt="Card Image">
-                    <div class="group-price-status">
-                        <li class="price-card">$767,98</li>
-                        <li class="status-card">For sale</li>
-                    </div>
-                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                    <ul class="seller-info">
-                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                            <div class="seller-contact">
-                                <li class="seller-name">Liliq</li>
-                                <li class="seller-time-publication">20.11 14:55</li>
-                            </div>
-                    </ul>
-                </div>
-            </ul>
-        </a>
-
-        <a class="link-card" href="#">
-            <ul class="border-card">
-                <div class="all-info-card">
-                    <img src="https://cdn.pixabay.com/photo/2023/08/11/12/41/capuchin-8183528_640.jpg" class="image-card" alt="Card Image">
-                    <div class="group-price-status">
-                        <li class="price-card">$767,98</li>
-                        <li class="status-card">For sale</li>
-                    </div>
-                    <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                    <ul class="seller-info">
-                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                            <div class="seller-contact">
-                                <li class="seller-name">Liliq</li>
-                                <li class="seller-time-publication">20.11 14:55</li>
-                            </div>
-                    </ul>
-                </div>
-            </ul>
-        </a>
        
     </div>
 

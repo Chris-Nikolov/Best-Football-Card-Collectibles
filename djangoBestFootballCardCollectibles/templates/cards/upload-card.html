@@ -1,107 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="" >
-    <link rel="stylesheet" href="../CSS/main.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project2 My card site</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<header>
-    <div class="all-navigation">
-        <div class="container">
-            <a href="#" id="logo" class="nav-link" title="Best Football Cards">BFC</a>
-            <div class="couple-search-top">
-                <input class="search-box" type="text" placeholder="Search card...">
-                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <nav id="navbar" class="navbar-conteiner nav-link">
-            <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
-
-            <!-- If you havent profile -->
-            <a href="#" class="navbar-item nav-link" id="login">Login</a>
-
-            <!-- If you HAVE profile  -->
-            <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
-            <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"></i></a>
-
-            <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile"><i class="fa-solid fa-circle-user"></i></a>
-            <a href="#" class="navbar-item nav-link" id="upload"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>    
-            </nav>
-        </div>
-    </div>
-</header>
+{% extends 'base.html' %}
+{% block main_content %}
 <body>
 
 
     <div class="container-below-navbar">
-        <form action="#" id="upload-card-form" class="form-container" method="post">
-            <h1 class="upload-title">Upload Card</h1>
+        <form action="{% url 'add-card' %}" id="upload-card-form" class="form-container" method="post" enctype="multipart/form-data">
+            {{ form }}
 
-            <div class="form-group">
-                <label for="upload-title">Title Card</label>
-                <input class="form-input" type="text" id="upload-title" name="upload-title" placeholder="Card Title">
-            </div>
-        
-            <div class="form-group">
-                <label for="card-status">Card Status</label>
-                <select class="form-input" id="card-status" name="card-status">
-                    <option value="for-sale">For Sale</option>
-                    <option value="for-trade">For Trade</option>
-                    <option value="for-glory">For Glory</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="card-price">Price</label>
-                <input class="form-input" type="number" id="card-price" name="card-price" placeholder="Price">
-            </div>
-            <!--
-            <div class="form-group">
-                <label for="card-currency">Currency</label>
-
-                <label for="dollar">Dollar $</label>
-                <input class="form-input" type="radio" id="dollar" name="card-currency" value="dollar">
-
-                <label for="euro">Euro €</label>
-                <input class="form-input" type="radio" id="euro" name="card-currency" value="euro">
-
-                <label for="pound">Pound £</label>
-                <input class="form-input" type="radio" id="pound" name="card-currency" value="pound">
-            </div>
-
-            <div class="form-group">
-                <label for="card-tags-premiar-league">Premiar League</label>
-                <input class="form-input" type="checkbox" id="card-tags-premiar-league" name="card-tags-premiar-league">
-
-                <label for="card-tags-man-city">Manchester City</label>
-                <input class="form-input" type="checkbox" id="card-tags-man-city" name="card-tags-man-city">
-
-                <label for="card-tags-sport">Football</label>
-                <input class="form-input" type="checkbox" id="card-tags-sport" name="card-tags-sport">
-
-                <label for="card-tags-position">MidFilder</label>
-                <input class="form-input" type="checkbox" id="card-tags-position" name="card-tags-position">
-            </div> -->
-
-            <div class="form-group">
-                <label for="card-img-file">Upload Card Image</label>
-
-                <input class="form-input uplC-form-insert-btn" type="file" id="card-img-file" name="card-img-file">
-            </div>
-
-            <div class="form-group">
-                <label for="card-description">Description</label>
-                <textarea class="form-input" type="" id="card-description" name="card-description" rows="6" cols="50"></textarea>
-            </div>
-            
-            <div class="forget">
-                <label for=""><input type="checkbox"> I agree to the <a href="#"> Terms of Service</a></label>
-            </div>
             
             <button type="submit" class="submit-button">Upload</button>
+            {% csrf_token %}
         
         </form>
     </div>
@@ -109,41 +17,4 @@
 
     
 </body>
-<footer>
-    <div class="footer-all-content">
-        <div class="f-logo-social">
-            <a class="footer-logo" href="#">BestFootballCard</a>
-            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
-            <aside class="social-media">
-                <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
-                <a href="#"><i title="Linkedin" class="fa-brands fa-linkedin"></i></i></a>
-                <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></i></a>
-                <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></i></a>
-            </aside>
-        </div>
-        <div class="footer-links">
-            <div class="discover">
-                <span>Discover</span>
-                <a href="#">Popular Cards</a>
-            </div>
-            <div class="community">
-                <span>Community</span>
-                <a href="#">Blog</a>
-                <a href="#">Forum</a>
-                <a href="#">Creators</a>
-            </div>
-            <div class="about">
-                <span>About</span>
-                <a href="#">About Us</a>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
-    </div>
-    
-</footer>
-<p class="copyright">&copy; 2024</p>
-
-
-<script src="../JS/script.js"></script>
-
-</html>
+{% endblock %}

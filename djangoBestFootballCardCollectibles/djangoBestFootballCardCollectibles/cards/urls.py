@@ -1,3 +1,7 @@
 from django.urls import path
 
-urlpatterns = []
+from djangoBestFootballCardCollectibles.cards.views import CreateCardView
+
+urlpatterns = [
+    path('add', CreateCardView.as_view(), name='add-card'),
+]
