@@ -9,6 +9,13 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+ {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 <header>
     <div class="all-navigation">
         <div class="container">
@@ -21,14 +28,20 @@
             <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
 
             <!-- If you don't have a profile -->
-            <a href="#" class="navbar-item nav-link" id="login">Login</a>
-
+                {% if not user.is_authenticated %}
+                <a href="{% url 'login' %}" class="navbar-item nav-link" id="login">Login</a>
+                {% else %}
             <!-- If you HAVE profile  -->
+                     <form action="{% url 'logout' %}" method="post" class="navbar-item nav-link" id="logout-form">
+                        {% csrf_token %}
+                    <button type="submit" class="custom-button">Logout</button>
+    </form>
             <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
             <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"> <span class="message-icon-notification">3</span> </i></a>
 
             <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile"><!--<i class="fa-solid fa-circle-user"></i>--> <img class="navbar-profile-picture" src="https://cdn.pixabay.com/photo/2016/11/23/01/11/animal-1851634_640.jpg"> </a>
-            <a href="#" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>    
+            <a href="#" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>
+                {% endif %}
             </nav>
         </div>
     </div>
