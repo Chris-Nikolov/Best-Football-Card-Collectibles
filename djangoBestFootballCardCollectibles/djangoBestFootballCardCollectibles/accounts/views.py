@@ -8,6 +8,7 @@ from django.views.generic import CreateView, DetailView
 
 from djangoBestFootballCardCollectibles.accounts.forms import BFCCUserCreationForm
 from djangoBestFootballCardCollectibles.accounts.models import Profile
+from djangoBestFootballCardCollectibles.cards.models import Card
 
 # Create your views here.
 
@@ -41,3 +42,30 @@ class UserLoginView(AnonymousRequiredMixin, LoginView):
 
 class UserLogoutView(LogoutView):
     next_page = 'index'
+
+
+# class ProfileDetailView(LoginRequiredMixin, DetailView):
+#     model = Profile
+#     template_name = 'accounts/profile.html'
+#
+#     def get_object(self):
+#         return Profile.objects.get(user=self.request.user)
+#
+#
+# def collection(request):
+#     owner = request.user
+#     cards = Card.objects.filter(owner_id=owner).order_by('-created_at')
+#     context = {"cards": cards}
+#     return render(request, 'accounts/profile.html', context)
+
+class ProfileDetailView(LoginRequiredMixin, DetailView):
+    model = Profile
+    template_name = 'accounts/profile.html'
+
+    def get_object(self):
+        return Profile.objects.get(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cards'] = Card.objects.filter(owner=self.request.user).order_by('-created_at')
+        return context

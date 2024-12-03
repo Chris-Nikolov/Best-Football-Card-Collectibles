@@ -1,10 +1,12 @@
 
 from django.urls import path
 
-from djangoBestFootballCardCollectibles.accounts.views import UserRegisterView, UserLoginView, UserLogoutView
+from djangoBestFootballCardCollectibles.accounts.views import UserRegisterView, UserLoginView, UserLogoutView, \
+    ProfileDetailView
 
 urlpatterns = [
     path('register/', UserRegisterView.as_view(), name='register'),
     path('login/', UserLoginView.as_view(), name='login'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('details', ProfileDetailView.as_view(), name='details'),
 ]
