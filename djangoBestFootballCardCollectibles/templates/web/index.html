@@ -60,10 +60,10 @@
                     </div>
                     <li class="title-card">{{ card.title }}</li>
                     <ul class="seller-info">
-                            <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
+                            <img src="{{ card.owner.profile.get_profile_picture_url }}" class="seller-image" alt="Seller Image">
                             <div class="seller-contact">
                                 <li class="seller-name">{{ card.owner.profile.first_name}}</li>
-                                <li class="seller-time-publication">{{ card.created_at }}</li>
+                                <li class="seller-time-publication">{{ card.owner.profile.created_at }}</li>
                             </div>
                     </ul>
                 </div>

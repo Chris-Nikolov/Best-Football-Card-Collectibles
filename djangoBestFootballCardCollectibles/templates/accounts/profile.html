@@ -6,7 +6,7 @@
     <div class="con-res">
         <div class="bg-w-profile only-profile-info"> 
             <div class="my-profile-account">
-                <img src="https://cdn.pixabay.com/photo/2022/10/01/21/25/woman-7492273_640.jpg">
+                <img src="{{ profile.get_profile_picture_url}}">
                 <h3 class="full-name">{{ profile.first_name }} {{ profile.last_name }}</h3>
                 <p class="username">@{{ profile.first_name.lower }}{{ profile.pk }}{{ profile.pk }}</p>
                 <p class="descr-profile"> {{ profile.description }} </p>

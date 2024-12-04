@@ -39,7 +39,7 @@
             <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
             <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"> <span class="message-icon-notification">3</span> </i></a>
 
-            <a href="{% url 'details' %}" class="navbar-item nav-link" id="my-profile" title="Profile"><!--<i class="fa-solid fa-circle-user"></i>--> <img class="navbar-profile-picture" src="https://cdn.pixabay.com/photo/2016/11/23/01/11/animal-1851634_640.jpg"> </a>
+            <a href="{% url 'details' %}" class="navbar-item nav-link" id="my-profile" title="Profile"><img class="navbar-profile-picture" src="{{ user.profile.get_profile_picture_url }}"> </a>
             <a href="{% url 'add-card' %}" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>
                 {% endif %}
             </nav>
