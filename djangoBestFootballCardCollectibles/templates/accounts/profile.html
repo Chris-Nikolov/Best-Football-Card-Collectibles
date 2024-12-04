@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block  main_content%}
 <body>
-    
+
     <div class="empty-space1 noselect"></div>
     <div class="con-res">
-        <div class="bg-w-profile only-profile-info"> 
+        <div class="bg-w-profile only-profile-info">
             <div class="my-profile-account">
                 <img src="{{ profile.get_profile_picture_url}}">
                 <h3 class="full-name">{{ profile.first_name }} {{ profile.last_name }}</h3>
@@ -14,10 +14,10 @@
             <div class="bg-small">
                 <div class="bins">
                     <!-- If it is your profile-->
-                    <a class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                    <a href="{% url 'edit' %}" class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                     <!-- Else report and logout btn-->
-                    <a class="for-profile-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
-                    <a class="for-profile-btn"><i class="fa-regular fa-flag"></i> Report</a>
+{#                    <a class="for-profile-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>#}
+{#                    <a class="for-profile-btn"><i class="fa-regular fa-flag"></i> Report</a>#}
 
                 </div>
 
@@ -28,10 +28,10 @@
     </div>
 
     <!--  <div class="recommend-card" id="recommend-card">
-        If no result/ no items 
+        If no result/ no items
         <div class="no-result"><h1>No Result</h1></div> -->
-         
-         
+
+
             <div class="con-res">
                 <div class="bg-w-profile only-card-window">
                     <div class="name-section-container">
@@ -41,20 +41,20 @@
                             <option value="Newest" selected >Newest</option>
                             <option value="Oldest">Oldest</option>
                             <option value="Cheapest">Cheapest</option>
-                            <option value="Most exspensive">Most exspensive</option>
+                            <option value="Most expensive">Most expensive</option>
                             <option value="By default">By default<option>
                         </select>
                     </div>
                     <div class="card-area">
                         {% if cards %}
                         {% for card in cards %}
-                        
+
                         <a href="#">
                             <div class="container-card">
                                 <img class="my-card-img" src="{{ card.image.url }}" alt="Card Image">
                                 <div class="overlay">
                                     <p class="">{{ card.title }}</p>
-                                </div>    
+                                </div>
                             </div>
                         </a>
                         {% endfor %}
@@ -62,7 +62,7 @@
 
 
 
-                        
+
 
 
 
@@ -70,7 +70,7 @@
 
                 </div>
             </div>
-        
+
 
 
 </body>

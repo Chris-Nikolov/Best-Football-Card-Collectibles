@@ -4,10 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, UpdateView
 from django.templatetags.static import static
 
-from djangoBestFootballCardCollectibles.accounts.forms import BFCCUserCreationForm
+from djangoBestFootballCardCollectibles.accounts.forms import BFCCUserCreationForm, ProfileEditForm
 from djangoBestFootballCardCollectibles.accounts.models import Profile
 from djangoBestFootballCardCollectibles.cards.models import Card
 
@@ -58,4 +58,14 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
         context['profile'] = profile
         context['cards'] = Card.objects.filter(owner=self.request.user).order_by('-created_at')
         return context
+
+
+class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+    model = Profile
+    form_class = ProfileEditForm
+    template_name = 'accounts/profile-edit.html'
+    success_url = reverse_lazy('details')
+
+    def get_object(self):
+        return Profile.objects.get(user=self.request.user)
 

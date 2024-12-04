@@ -37,7 +37,7 @@
             <option value="Newest" selected >Newest</option>
             <option value="Oldest">Oldest</option>
             <option value="Cheapest">Cheapest</option>
-            <option value="Most exspensive">Most exspensive</option>
+            <option value="Most expensive">Most expensive</option>
             <option value="By default">By default<option>
         </select>
     </div>
@@ -63,7 +63,7 @@
                             <img src="{{ card.owner.profile.get_profile_picture_url }}" class="seller-image" alt="Seller Image">
                             <div class="seller-contact">
                                 <li class="seller-name">{{ card.owner.profile.first_name}}</li>
-                                <li class="seller-time-publication">{{ card.owner.profile.created_at }}</li>
+                                <li class="seller-time-publication">{{ card.created_at }}</li>
                             </div>
                     </ul>
                 </div>

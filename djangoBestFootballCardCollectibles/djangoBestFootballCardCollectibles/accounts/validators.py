@@ -13,6 +13,8 @@ def phone_validator(value):
 
 
 def validate_profile_picture_size(image):
+    if isinstance(image, bool) or not hasattr(image, 'size'):
+        return
     max_size_kb = 500
     if image.size > max_size_kb * 1024:
         raise ValidationError(f"Image size must not exceed {max_size_kb} KB.")
