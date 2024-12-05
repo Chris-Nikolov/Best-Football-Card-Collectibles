@@ -23,3 +23,7 @@ class ProfileEditForm(forms.ModelForm):
         model = Profile
         exclude = ('user', 'email', )
         fields = ['first_name', 'last_name', 'profile_picture', 'address', 'phone_number', 'description']
+
+
+class DeactivateProfileForm(forms.Form):
+    confirm = forms.BooleanField(label="I confirm that I want to deactivate my profile")

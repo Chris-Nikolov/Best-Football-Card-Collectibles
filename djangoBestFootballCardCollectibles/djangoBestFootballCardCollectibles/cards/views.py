@@ -1,7 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.forms import modelform_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from djangoBestFootballCardCollectibles.cards.forms import CardForm
 from djangoBestFootballCardCollectibles.cards.models import Card
@@ -46,3 +47,12 @@ class CardUpdateView(LoginRequiredMixin, UpdateView):
         card.owner = self.request.user
         card.save()
         return super().form_valid(form)
+
+
+class DeleteCardView(LoginRequiredMixin, DeleteView):
+    model = Card
+    template_name = "cards/delete-card.html"
+    success_url = reverse_lazy("index")
+
+    def get_object(self):
+        return Card.objects.get(pk=self.kwargs['pk'], owner=self.request.user)

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<main>
+    <div class="empty-space1 noselect"></div>
+
+    <div class="bg-w-profile edit-window"> 
+        <h3> <i class="fa-solid fa-circle-user"></i> Account Deletion</h3>
+        <h4>Do you really want to delete your profile?</h4>
+        <form action="{% url 'delete-profile' %}" method="post">
+           
+                {{ form }}
+
+
+                <div class="finish-buttons">
+                    <button type="submit" class="update-btn">Delete</button>
+                    {% csrf_token %}
+                </div>
+            
+           
+       
+        </form>
+        <button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button>
+        
+    </div>
+</main>
+{% endblock %}

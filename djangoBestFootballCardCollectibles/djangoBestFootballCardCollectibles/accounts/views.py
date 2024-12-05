@@ -4,10 +4,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, UpdateView
+from django.views.generic import CreateView, DetailView, UpdateView, View
 from django.templatetags.static import static
 
-from djangoBestFootballCardCollectibles.accounts.forms import BFCCUserCreationForm, ProfileEditForm
+from djangoBestFootballCardCollectibles.accounts.forms import BFCCUserCreationForm, ProfileEditForm, \
+    DeactivateProfileForm
 from djangoBestFootballCardCollectibles.accounts.models import Profile
 from djangoBestFootballCardCollectibles.cards.models import Card
 
@@ -69,3 +70,21 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     def get_object(self):
         return Profile.objects.get(user=self.request.user)
 
+
+class DeactivateProfileView(LoginRequiredMixin, View):
+    success_url = reverse_lazy('index')
+
+    def get(self, request, *args, **kwargs):
+        form = DeactivateProfileForm()
+        return render(request, 'accounts/profile-delete.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = DeactivateProfileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            user.is_active = False
+            user.save()
+
+            Card.objects.filter(owner=user).update(is_approved=False)
+
+            return redirect(self.success_url)

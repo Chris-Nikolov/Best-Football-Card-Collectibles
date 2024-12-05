@@ -23,7 +23,7 @@
                 <!-- If it is my post card-->
                 {% if user == card.owner %}
                 <a href="{% url 'card-edit' pk=card.pk %}" class="edit-card-btn">Edit</a>
-                <a class="delete edit-card-btn">Delete</a>
+                <a href="{% url 'card-delete' pk=card.pk %}" class="delete edit-card-btn">Delete</a>
                 {% endif %}
             </div>
         </div>

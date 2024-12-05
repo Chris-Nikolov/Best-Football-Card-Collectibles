@@ -2,7 +2,6 @@
 {% block main_content %}
 <main>
     <div class="empty-space1 noselect"></div>
-
     <div class="bg-w-profile edit-window"> 
         <h3> <i class="fa-solid fa-circle-user"></i> Account Settings</h3>
         <form action="{% url 'edit' %}" method="post" enctype="multipart/form-data">
@@ -18,6 +17,7 @@
 
                 <div class="finish-buttons">
                     <button type="submit" class="update-btn">Update</button>
+                    
                     {% csrf_token %}
                 </div>
             </div>
@@ -25,6 +25,7 @@
        
         </form>
         <button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button>
+        <a href="{% url 'delete-profile' %}">Delete Account</a>
         
     </div>
 </main>
