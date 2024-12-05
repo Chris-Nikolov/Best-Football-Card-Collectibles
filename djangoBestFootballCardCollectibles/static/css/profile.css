@@ -127,6 +127,9 @@
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     
 }
+.card-area a{
+    display: inline-block;
+}
 
 .container-card{
     width: 250px;

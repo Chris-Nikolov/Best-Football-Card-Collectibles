@@ -1,48 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="" >
-    <link rel="stylesheet" href="/static/css/main.css">
+{% extends 'base.html' %}
+{% block main_content %}
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project2 My card site</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-<header>
-    <div class="all-navigation">
-        <div class="container">
-            <a href="#" id="logo" class="nav-link" title="Best Football Cards">BFC</a>
-            <div class="couple-search-top">
-                <input class="search-box" type="text" placeholder="Search card...">
-                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <nav id="navbar" class="navbar-container nav-link">
-            <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
-
-            <!-- If you don't have a profile -->
-            <a href="#" class="navbar-item nav-link" id="login">Login</a>
-
-            <!-- If you HAVE profile  -->
-            <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
-            <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"></i></a>
-
-            <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile"><!--<i class="fa-solid fa-circle-user"></i>--> <img class="navbar-profile-picture" src="https://cdn.pixabay.com/photo/2016/11/23/01/11/animal-1851634_640.jpg"> </a>
-
-            <a href="#" class="navbar-item nav-link" id="upload"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>    
-            </nav>
-        </div>
-    </div>
-</header>
-
-       
+<main>
+<form action="{% url 'card-details' pk=card.pk %}" method="post" enctype="multipart/form-data">
+    {{ form }}
 <div class="product-container">
     <div>
         <div class="border-product-img">
             <div class="product-img" >
-                <img src="https://cdn.pixabay.com/photo/2024/03/26/08/35/ai-generated-8656260_640.jpg" alt="Card Image">
+                <img src="{{ card.image.url }}" alt="Card Image">
         
             </div>
         </div>
@@ -50,37 +17,38 @@
 
     <div class="product">
         <div class="container-p-date-fav-edit">
-            <p class="product-date">20 Nov 20:55</p>
+            <p class="product-date">{{ card.created_at }}</p>
             <div class="group-bins">
                 <a class="favorite-btn"><i class="fa-solid fa-heart"></i></a>
                 <!-- If it is my post card-->
+                {% if user == card.owner %}
                 <a class="edit-card-btn">Edit</a>
                 <a class="delete edit-card-btn">Delete</a>
+                {% endif %}
             </div>
         </div>
-        <h2 class="product-title">Haaland Black Edition 2024/2025 Full Number Man City Sesion</h2>
+        <h2 class="product-title">{{ card.title }}</h2>
         
-        <h3 class="product-price">$ 900</h3>
+        <h3 class="product-price">{{ card.price }}$</h3>
         <div class="tags-card">
-            <a href="#" class="status-card">For sale</a>
-            <a href="#" class="status-card">Football</a>
-            <a href="#" class="status-card">Premier League</a>
-            <a href="#" class="status-card">Manchester City</a>
+            <a href="{% url 'index' %}" class="status-card">For sale</a>
+            <a href="#" class="status-card">{{ card.brand }}</a>
+
 
         </div>
         
         <div class="container-product-seller">
-                <a href="" ><img class="img-seller" src="https://cdn.pixabay.com/photo/2020/07/21/01/33/cute-5424776_640.jpg"></a>
+                <a href="" ><img class="img-seller" src="{{ card.owner.profile.get_profile_picture_url }}"></a>
                 <div>
-                    <a href=""  class="product-seller">Petar Siqnov</a>
-                    <p class="date-reg-seller">Registration: 11 Nov 2014</p>
-                    <p class="last-activity-seller">Last Activity: 03 Dec 2024</p>
+                    <a href=""  class="product-seller">{{ card.owner.profile.first_name }} {{ card.owner.profile.last_name }}</a>
+                    <p class="date-reg-seller">Registration: {{ card.owner.profile.created_at }}</p>
+                    <p class="last-activity-seller">Last Activity: {{ card.owner.last_login }}</p>
                 </div>
                 
         </div>
         <button class="product-buy">Buy Now</button>
         <button class="write-me">Write Me</button>
-    
+        {% csrf_token %}
     </div>
     
 
@@ -88,14 +56,14 @@
 </div>
 <div class="product-container-description">
     <div>
-        <h4 class="desc-title">Descpription</h4>
-        <p class="product-description"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat sit quod illum Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione molestias debitis corrupti ipsa nesciunt fugiat sed accusantium ullam reiciendis pariatur officiis dicta aliquam delectus quasi nostrum voluptatum, repellendus excepturi animi consectetur totam perferendis ducimus similique molestiae. Facere earum sed illo nesciunt vitae eius non neque, autem, minima aperiam, explicabo provident! Amet sint non architecto adipisci iste pariatur qui ipsam quas eum voluptatum omnis fugit soluta quidem alias voluptates, esse quibusdam voluptatibus dignissimos numquam libero neque debitis autem consectetur. Amet voluptatum impedit assumenda porro nulla tempora, fugit dolor consectetur deleniti suscipit consequatur enim iure tempore vel doloribus aliquid sapiente, voluptate laudantium.excepturi, voluptatem, vitae fugit similique enim, voluptatum labore veniam explicabo praesentium sapiente? Nostrum officia pariatur molestiae provident doue, voluptate officia saepe quasi.iciatisuid excepturi recusandae soluta ab neque error!</p>
+        <h4 class="desc-title">Description</h4>
+        <p class="product-description">{{ card.description }}</p>
     </div>
     <a class="report-btn"><i class="fa-regular fa-flag"></i> Report</a>
 
     
-    
-</div>
+
+</div> </form>
     
 
 <div class="may-also-like-title">
@@ -210,56 +178,5 @@
            
     </div>
 </div>
-
-
-
-
-
-    
-
-
-
-    
-
-
-    
-
-    
-
-<footer>
-    <div class="footer-all-content">
-        <div class="f-logo-social">
-            <a class="footer-logo" href="#">BestFootballCard</a>
-            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
-            <aside class="social-media">
-                <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
-                <a href="#"><i title="Linkedin" class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></a>
-                <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></a>
-            </aside>
-        </div>
-        <div class="footer-links">
-            <div class="discover">
-                <span>Discover</span>
-                <a href="#">Popular Cards</a>
-            </div>
-            <div class="community">
-                <span>Community</span>
-                <a href="#">Blog</a>
-                <a href="#">Forum</a>
-                <a href="#">Creators</a>
-            </div>
-            <div class="about">
-                <span>About</span>
-                <a href="#">About Us</a>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
-    </div>
-    
-</footer>
-<p class="copyright">&copy; 2024</p>
-
-<script src="/static/js/script.js"></script>
-</body>
-</html>
+</main>
+{% endblock %}

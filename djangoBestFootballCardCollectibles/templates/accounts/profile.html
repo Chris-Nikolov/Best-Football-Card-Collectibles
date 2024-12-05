@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block  main_content%}
-<body>
-
+<main>
     <div class="empty-space1 noselect"></div>
     <div class="con-res">
         <div class="bg-w-profile only-profile-info">
@@ -14,14 +13,13 @@
             <div class="bg-small">
                 <div class="bins">
                     <!-- If it is your profile-->
+                    
                     <a href="{% url 'edit' %}" class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
                     <!-- Else report and logout btn-->
 {#                    <a class="for-profile-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>#}
 {#                    <a class="for-profile-btn"><i class="fa-regular fa-flag"></i> Report</a>#}
-
+                    
                 </div>
-
-
             </div>
             <div class="bg-large"></div>
         </div>
@@ -30,8 +28,6 @@
     <!--  <div class="recommend-card" id="recommend-card">
         If no result/ no items
         <div class="no-result"><h1>No Result</h1></div> -->
-
-
             <div class="con-res">
                 <div class="bg-w-profile only-card-window">
                     <div class="name-section-container">
@@ -49,29 +45,21 @@
                         {% if cards %}
                         {% for card in cards %}
 
-                        <a href="#">
+
                             <div class="container-card">
-                                <img class="my-card-img" src="{{ card.image.url }}" alt="Card Image">
-                                <div class="overlay">
-                                    <p class="">{{ card.title }}</p>
-                                </div>
+                                <a href="{% url 'card-details' pk=card.pk %}">
+                                    <img class="my-card-img" src="{{ card.image.url }}" alt="Card Image">
+                                    <div class="overlay">
+                                        <p class="">{{ card.title }}</p>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
+
                         {% endfor %}
                         {% endif %}
 
-
-
-
-
-
-
                     </div>
-
                 </div>
             </div>
-
-
-
-</body>
+</main>
 {% endblock %}

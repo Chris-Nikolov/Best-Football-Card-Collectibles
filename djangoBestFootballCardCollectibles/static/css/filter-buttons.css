@@ -11,12 +11,14 @@ select{
 .generic-tags,
 .specific-tags{
     background-color: #EFF0F1;
+    margin: auto;
 }
 
 .specific-tags{
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    margin-bottom: 50px;
 }
 
 

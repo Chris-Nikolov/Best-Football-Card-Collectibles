@@ -13,6 +13,7 @@ footer{
 }
 
 .footer-all-content{
+    margin: auto;
     padding-top: 100px;
     display: flex;
     flex-wrap: wrap;

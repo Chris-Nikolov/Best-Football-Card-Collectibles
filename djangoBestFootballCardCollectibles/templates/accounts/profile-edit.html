@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block main_content %}
-<body>
+<main>
     <div class="empty-space1 noselect"></div>
 
     <div class="bg-w-profile edit-window"> 
@@ -20,16 +20,12 @@
                     <button type="submit" class="update-btn">Update</button>
                     {% csrf_token %}
                 </div>
-                
             </div>
            
        
         </form>
         <button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button>
         
-
-
     </div>
-
-</body>
+</main>
 {% endblock %}

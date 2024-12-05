@@ -4,6 +4,7 @@
 }
 
 .recommend-card{
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;

@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block main_content %}
-<body>
-    <div class="search-image">
-        <img src="https://cdn.pixabay.com/photo/2014/10/14/20/24/football-488714_960_720.jpg" alt="Search Image" class="background-img">
+    
+        <div class="search-image">
+            <img src="https://cdn.pixabay.com/photo/2014/10/14/20/24/football-488714_960_720.jpg" alt="Search Image" class="background-img">
         <div id="search-bar">
             {% if user.is_authenticated and  user.profile.first_name%}
             <h1>Hello, {{ user.profile.first_name }}!</h1>
@@ -14,18 +14,19 @@
             </div>
         </div>
     </div>
+    <main>
 
-    <div class="generic-tags"> 
-        <div class="genre">
-            <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="#">Cards</a>
-            <a href="#">Figures</a>
-            <a href="#">Toys</a>
-            <a href="#">Board Games</a>
+        <div class="generic-tags"> 
+            <div class="genre">
+                <a href="#"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#">Cards</a>
+                <a href="#">Figures</a>
+                <a href="#">Toys</a>
+                <a href="#">Board Games</a>
+            </div>
         </div>
-    </div>
 
-    <div class="specific-tags"> 
+        <div class="specific-tags"> 
         <div class="subcategories">
             <a href="#">Football</a>
             <a href="#">Wrestling</a>
@@ -42,14 +43,14 @@
         </select>
     </div>
 
-    <div class="recommend-card" id="recommend-card">
+        <div class="recommend-card" id="recommend-card">
         {% if not cards%}
         <!-- If no result/ no items-->
         <div class="no-result"><h1>No Result</h1></div>
         {% else %}
          {% for card in cards%}
          {% if card.is_for_sale %}
-         <a class="link-card" href="#">
+         <a class="link-card" href="{% url 'card-details' pk=card.pk %}">
             <ul class="border-card">
                 <div class="all-info-card">
                     <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
@@ -75,7 +76,5 @@
 
        
     </div>
-
-    
-</body>
+    </main>
 {% endblock %}

@@ -9,6 +9,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<body>
  {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -25,8 +26,6 @@
                 <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <nav id="navbar" class="navbar-container nav-link">
-            <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
-
             <!-- If you don't have a profile -->
                 {% if not user.is_authenticated %}
                 <a href="{% url 'login' %}" class="navbar-item nav-link" id="login">Login</a>
@@ -83,8 +82,7 @@
     
 </footer>
 <p class="copyright">&copy; 2024</p>
-
-
+ 
 <script src="/static/js/script.js"></script>
-
+</body>
 </html>

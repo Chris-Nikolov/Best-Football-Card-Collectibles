@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 
 from djangoBestFootballCardCollectibles.cards.models import Card
 
@@ -22,4 +22,10 @@ class CreateCardView(CreateView):
             card.is_approved = False
         card.save()
         return super().form_valid(form)
+
+
+class CardDetailView(DetailView):
+    model = Card
+    template_name = 'cards/product-detail.html'
+    context_object_name = 'card'
 

@@ -41,7 +41,7 @@
 
 .container{
     transition: background-color 0.3s, color 0.3s;
-    margin: auto 0;
+    margin: 0 auto ;
     height: auto;
     display: flex;
     align-items: center;
@@ -52,13 +52,13 @@
 }
 
 
-.navbar-conteiner{
+.navbar-container{
     display: flex; 
     justify-content: center; 
     align-items: center;
 }
 
-.navbar-conteiner > *{
+.navbar-container > *{
     margin-left: 18px;
 }
 #upload{
@@ -94,7 +94,7 @@
     
 }
 
-.on-notificaton .message-icon-notification{
+.on-notification .message-icon-notification{
     position: absolute;
     top: -9px;
     right: -10px;
