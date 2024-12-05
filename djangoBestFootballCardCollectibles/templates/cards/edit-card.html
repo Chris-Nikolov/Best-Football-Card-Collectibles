@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<main>
+
+    <div class="container-below-navbar">
+        <form action="{% url 'card-edit' pk=object.pk %}" class="form-container" method="post" enctype="multipart/form-data">
+            {{ form }}
+            
+            <button type="submit" class="submit-button">Update</button>
+            {% csrf_token %}
+        
+        </form>
+    </div>
+</main>
+{% endblock %}

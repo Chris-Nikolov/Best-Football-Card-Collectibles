@@ -22,7 +22,7 @@
                 <a class="favorite-btn"><i class="fa-solid fa-heart"></i></a>
                 <!-- If it is my post card-->
                 {% if user == card.owner %}
-                <a class="edit-card-btn">Edit</a>
+                <a href="{% url 'card-edit' pk=card.pk %}" class="edit-card-btn">Edit</a>
                 <a class="delete edit-card-btn">Delete</a>
                 {% endif %}
             </div>
