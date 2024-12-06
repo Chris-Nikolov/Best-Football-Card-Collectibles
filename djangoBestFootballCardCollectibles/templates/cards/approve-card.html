@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<main>
+
+    <div class="container-below-navbar">
+        <form action="{% url 'card-approve' pk=card.pk %}" class="form-container" method="post" enctype="multipart/form-data">
+            {{ form }}
+            <h1>Do you really want to approve:</h1>
+            <h3>{{ card.title }}</h3>
+            <button type="submit" class="submit-button">Approve</button>
+            {% csrf_token %}
+        <a href="{% url 'card-delete'  pk=card.pk %}">DELETE CARD</a>
+        </form>
+        
+    </div>
+</main>
+{% endblock %}

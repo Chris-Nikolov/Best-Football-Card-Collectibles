@@ -1,4 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 from django.forms import modelform_factory
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -55,4 +56,24 @@ class DeleteCardView(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("index")
 
     def get_object(self):
-        return Card.objects.get(pk=self.kwargs['pk'], owner=self.request.user)
+        card = Card.objects.get(pk=self.kwargs['pk'])
+        if card.owner == self.request.user or self.request.user.is_staff:
+            return card
+        else:
+            raise PermissionDenied("This user don't have permission to delete this card.")
+
+
+class CardApprovalView(UserPassesTestMixin, UpdateView):
+    model = Card
+    fields = []
+    template_name = 'cards/approve-card.html'
+    success_url = reverse_lazy('staff_page')
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def form_valid(self, form):
+        card = form.save(commit=False)
+        card.is_approved = True
+        card.save()
+        return super().form_valid(form)

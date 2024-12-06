@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block main_content %}
+
+<main>
+    <div class="empty-space"></div>
+    <div class="specific-tags"> 
+        <div class="subcategories">
+            <a href="#" class="special-subcategories">Football</a>
+            <a href="#">Wrestling</a>
+            <a href="#">Comics</a>
+            
+        </div>
+        
+    </div>
+    <div class="response-container announces-tags">
+        <p> </p>
+    </div>
+
+    {% if not cards%}
+        <!-- If no result/ no items-->
+        <div class="no-result"><h1>No Result</h1></div>
+        {% else %}
+         {% for card in cards%}
+         {% if card.is_for_sale %}
+         <a class="link-card" href="{% url 'card-approve' pk=card.pk %}">
+            <ul class="border-card">
+                <div class="all-info-card">
+                    <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
+
+                    <div class="group-price-status">
+                        <li class="price-card">{{ card.price }}</li>
+                        <li class="status-card">For Sale</li>
+                    </div>
+                    <li class="title-card">{{ card.title }}</li>
+                    <ul class="seller-info">
+                            <img src="{{ card.owner.profile.get_profile_picture_url }}" class="seller-image" alt="Seller Image">
+                            <div class="seller-contact">
+                                <li class="seller-name">{{ card.owner.profile.first_name}}</li>
+                                <li class="seller-time-publication">{{ card.created_at }}</li>
+                            </div>
+                    </ul>
+                </div>
+            </ul>
+        </a>
+        {% endif %}
+     {% endfor %}
+    {% endif %}
+       
+    
+
+    <div class="all-pag-num">
+        <div class="pagination-arrow-left pag-num"> &lt; </div>
+        <div class="pagination-number-left pag-num">1</div>
+        <div class="pagination-number-center pag-num">2</div>
+        <div class="pagination-number-right pag-num">3</div>
+        <div class="pagination-arrow-right pag-num"> &gt; </div>
+    </div>
+</main>
+{% endblock %}

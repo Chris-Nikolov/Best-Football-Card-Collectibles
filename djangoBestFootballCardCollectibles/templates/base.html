@@ -41,6 +41,9 @@
             <a href="{% url 'details' %}" class="navbar-item nav-link" id="my-profile" title="Profile"><img class="navbar-profile-picture" src="{{ user.profile.get_profile_picture_url }}"> </a>
             <a href="{% url 'add-card' %}" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>
                 {% endif %}
+            {% if user.is_staff or user.is_superuser %}
+            <a href="{% url 'staff_page' %}"><h3>Staff page</h3></a>
+            {% endif %}
             </nav>
         </div>
     </div>

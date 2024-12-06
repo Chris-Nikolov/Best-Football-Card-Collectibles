@@ -50,7 +50,9 @@
         <button class="write-me">Write Me</button>
         {% csrf_token %}
     </div>
-    
+    {% if user.is_staff or user.is_superuser %}
+        <a href="{% url 'card-delete' pk=card.pk%}"><h4>REMOVE</h4></a>
+    {% endif %}
 
 
 </div>
