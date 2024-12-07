@@ -18,23 +18,23 @@
     </div>
     <main>
 
-        <div class="generic-tags"> 
-            <div class="genre">
-                <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-                <a href="#">Cards</a>
-                <a href="#">Figures</a>
-                <a href="#">Toys</a>
-                <a href="#">Board Games</a>
-            </div>
+{#        <div class="generic-tags"> #}
+{#            <div class="genre">#}
+{#                <a href="#"><i class="fa-solid fa-house"></i> Home</a>#}
+{#                <a href="#">Cards</a>#}
+{#                <a href="#">Figures</a>#}
+{#                <a href="#">Toys</a>#}
+{#                <a href="#">Board Games</a>#}
+{#            </div>#}
         </div>
 
         <div class="specific-tags"> 
         <div class="subcategories">
-            <a href="#">Football</a>
-            <a href="#">Wrestling</a>
-            <a href="#">Comics</a>
-            <a href="#">Anime</a>
-            <a href="#">Singer</a>
+            <a href="{% url 'all_cards' %}">For Sale</a>
+            <a href="{% url 'tags_page' brand='Topps' %}">Topps</a>
+            <a href="{% url 'tags_page' brand='Panini' %}">Panini</a>
+            <a href="{% url 'tags_page' brand='Futera' %}">Futera</a>
+            <a href="{% url 'tags_page' brand='Other' %}">Other</a>
         </div>
         <select class="sort" name="sorting" id="sort">
             <option value="Newest" selected >Newest</option>

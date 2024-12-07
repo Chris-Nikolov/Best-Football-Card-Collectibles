@@ -60,3 +60,14 @@ class AllCardsView(ListView):
 
     def get_queryset(self):
         return Card.objects.filter(is_approved=True).order_by('-created_at')
+
+
+class BrandCardsView(ListView):
+    model = Card
+    template_name = 'web/brand-cards-page.html'
+    context_object_name = 'cards'
+    paginate_by = 6
+
+    def get_queryset(self):
+        brand = self.kwargs.get('brand')
+        return Card.objects.filter(is_approved=True, brand__exact=brand).order_by('-created_at')
