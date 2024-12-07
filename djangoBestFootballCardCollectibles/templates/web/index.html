@@ -9,9 +9,11 @@
             {% endif %}
             <h4>Check the best football cards! Your next favorite collectibles are waiting!</h4>
             <div class="couple-search">
-                <input class="search-box" type="text" placeholder="Search..." title="Search">
-                <button class="search-button" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
+    <form method="get" action="{% url 'search' %}">
+        <input class="search-box" type="text" name="query" placeholder="Search..." title="Search">
+        <button class="search-button" type="submit" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+        </div>
         </div>
     </div>
     <main>
@@ -73,8 +75,11 @@
         {% endif %}
      {% endfor %}
     {% endif %}
-
-       
+    </div>
+    <div class="button-container">
+  <form method="get" action="{% url 'all_cards' %}">
+        <button type="submit" class="see-more dashboard">See More</button>
+  </form>
     </div>
     </main>
 {% endblock %}

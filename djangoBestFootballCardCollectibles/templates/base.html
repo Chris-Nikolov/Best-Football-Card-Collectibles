@@ -22,8 +22,10 @@
         <div class="container">
             <a href="{% url 'index' %}" id="logo" class="nav-link logo" title="Best Football Card Collectibles">BFCC</a>
             <div class="couple-search-top">
-                <input class="search-box" type="text" placeholder="Search card...">
-                <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <form method="get" action="{% url 'search' %}">
+        <input class="search-box" type="text" name="query" placeholder="Search card...">
+        <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
             </div>
             <nav id="navbar" class="navbar-container nav-link">
             <!-- If you don't have a profile -->

@@ -11,10 +11,6 @@
 
 
 
-
-
-
-
 *{  padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -182,3 +178,33 @@ input[type="text"]:focus{
     }
 }
 */
+
+/* Button See More/ See All */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.see-more{
+    align-items: center;
+    padding: 12px 17px;
+    cursor: pointer;
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: initial;
+    border: none;
+    color: #454647;
+    box-shadow: 0 0 10px rgba(158, 159, 160, 0.5);
+    outline: 2px solid white;
+    transition: all ease-in-out 0.2ms;
+}
+.see-more:hover{
+    background-color: #e1e4e7;
+}
+.see-more:active{
+    background-color: rgb(121, 118, 118);
+}

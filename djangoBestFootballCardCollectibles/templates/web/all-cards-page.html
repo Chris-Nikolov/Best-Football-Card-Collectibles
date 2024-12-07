@@ -21,9 +21,8 @@
         <div class="no-result"><h1>No Result</h1></div>
         {% else %}
          {% for card in cards%}
-          <div class="recommend-card space-between" id="recommend-card">   
-         
-         <a class="link-card" href="{% url 'card-approve' pk=card.pk %}">
+         <div class="recommend-card space-between" id="recommend-card">
+         <a class="link-card" href="{% url 'card-details' pk=card.pk %}">
             <ul class="border-card">
                 <div class="all-info-card">
                     <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
@@ -43,7 +42,7 @@
                 </div>
             </ul>
         </a>
-          </div>
+         </div>
      {% endfor %}
     {% endif %}
        

@@ -16,14 +16,13 @@
         <p> </p>
     </div>
 
-    {% if not cards%}
+    {% if not results %}
         <!-- If no result/ no items-->
         <div class="no-result"><h1>No Result</h1></div>
         {% else %}
-         {% for card in cards%}
-          <div class="recommend-card space-between" id="recommend-card">   
-         
-         <a class="link-card" href="{% url 'card-approve' pk=card.pk %}">
+         {% for card in results%}
+         <div class="recommend-card space-between" id="recommend-card">
+         <a class="link-card" href="{% url 'card-details' pk=card.pk %}">
             <ul class="border-card">
                 <div class="all-info-card">
                     <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
@@ -43,7 +42,7 @@
                 </div>
             </ul>
         </a>
-          </div>
+         </div>
      {% endfor %}
     {% endif %}
        
@@ -51,21 +50,22 @@
 
 
 <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
+            <span class="step-links">
+                {% if results.has_previous %}
+                    <a href="?query={{ query }}&page=1">&laquo; first</a>
+                    <a href="?query={{ query }}&page={{ results.previous_page_number }}">previous</a>
+                {% endif %}
 
-        <span class="current">
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
+                <span class="current">
+                    Page {{ results.number }} of {{ results.paginator.num_pages }}.
+                </span>
 
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div>
+                {% if results.has_next %}
+                    <a href="?query={{ query }}&page={{ results.next_page_number }}">next</a>
+                    <a href="?query={{ query }}&page={{ results.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        
 </main>
 {% endblock %}
