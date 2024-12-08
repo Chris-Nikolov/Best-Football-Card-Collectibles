@@ -8,17 +8,27 @@
     margin: auto;
     gap: 30px;
 }
+.product-container a h4{
+    color: #00A0F3;
+}
+.product-container a h4:hover{
+    color: #a6cfe7;
+}
 .product-container-description{
+    width: 400px;
     max-width: 1200px;
     display: flex;
     flex-direction: column;
-    
     justify-content: center;
     align-content: center;
-    margin: auto;
+    margin: 30px auto;
     gap: 30px;
     padding-bottom: 100px;
     line-height: 1.5em;
+}
+.product-container-description div{
+    justify-content: start;
+    text-align: start;
 }
 
 .border-product-img{
@@ -52,7 +62,9 @@
     flex-direction: column;
     gap: 20px;
     padding: 5px;
+    margin-left: 50px;
 }
+
 .container-p-date-fav-edit{
     display: flex;
     align-items: center;
@@ -190,3 +202,4 @@
     background: transparent;
     margin-bottom: 100px;
 }
+

@@ -57,7 +57,7 @@ class DeleteCardView(LoginRequiredMixin, DeleteView):
 
     def get_object(self):
         card = Card.objects.get(pk=self.kwargs['pk'])
-        if card.owner == self.request.user or self.request.user.is_staff:
+        if card.owner == self.request.user or self.request.user.is_superuser:
             return card
         else:
             raise PermissionDenied("This user don't have permission to delete this card.")
@@ -75,5 +75,23 @@ class CardApprovalView(UserPassesTestMixin, UpdateView):
     def form_valid(self, form):
         card = form.save(commit=False)
         card.is_approved = True
+        card.save()
+        return super().form_valid(form)
+
+
+class CardDisapprovalView(UserPassesTestMixin, UpdateView):
+    model = Card
+    fields = []
+    template_name = 'cards/disapprove-card.html'
+    success_url = reverse_lazy('staff_page')
+
+    def test_func(self):
+        return self.request.user.is_staff
+
+    def form_valid(self, form):
+        card = form.save(commit=False)
+        card.is_approved = False
+        card.is_for_sale = False
+        card.price = None
         card.save()
         return super().form_valid(form)

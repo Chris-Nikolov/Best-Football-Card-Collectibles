@@ -5,11 +5,16 @@
     <div class="container-below-navbar">
         <form action="{% url 'card-approve' pk=card.pk %}" class="form-container" method="post" enctype="multipart/form-data">
             {{ form }}
-            <h1>Do you really want to approve:</h1>
-            <h3>{{ card.title }}</h3>
-            <button type="submit" class="submit-button">Approve</button>
+            <h1 class="text ">Do you really want to approve:</h1>
+            <h3 class="text text-h1">{{ card.title }}</h3>
+            <button type="submit" class="submit-button style-btn">Approve</button>
             {% csrf_token %}
-        <a href="{% url 'card-delete'  pk=card.pk %}">DELETE CARD</a>
+        {% if user.is_superuser %}
+            <span><a href="{% url 'card-delete' pk=card.pk%}"><h4>REMOVE</h4></a></span>
+            <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
+        {% elif user.is_staff %}
+            <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
+        {% endif %}
         </form>
         
     </div>

@@ -8,12 +8,11 @@
             <h1>Hello, {{ user.profile.first_name }}!</h1>
             {% endif %}
             <h4>Check the best football cards! Your next favorite collectibles are waiting!</h4>
-            <div class="couple-search">
-    <form method="get" action="{% url 'search' %}">
+            
+    <form class="couple-search" method="get" action="{% url 'search' %}">
         <input class="search-box" type="text" name="query" placeholder="Search..." title="Search">
         <button class="search-button" type="submit" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
-        </div>
         </div>
     </div>
     <main>

@@ -16,7 +16,7 @@ window.addEventListener('scroll', function(){
 
 
 // Recommend position items//
-document.addEventListener('DOMContentLoaded', function(){
+/*document.addEventListener('DOMContentLoaded', function(){
     const container = document.getElementById('recommend-card');
     const items = container.children;
     if (items.length < 5){
@@ -25,4 +25,4 @@ document.addEventListener('DOMContentLoaded', function(){
     else{
         container.classList.add('space-between');
     }
-});
+}); */

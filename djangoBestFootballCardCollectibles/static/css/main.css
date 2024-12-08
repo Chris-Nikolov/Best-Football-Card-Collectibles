@@ -52,16 +52,19 @@ a,
     border-radius: 20px;
     padding: 8px 5px;
     font-size: 14px;
+    box-shadow: none;
 }
 .couple-search-top,
 .couple-search{
     display: flex;
     align-items: center;
+    flex-direction: row;
     justify-content: space-between;
     background-color: #e1e4e7;
     border-radius: 30px;
     padding: 10px;
     flex-grow: 1;
+    box-shadow: none;
 }
 .couple-search-top{
     margin:0px 10px;
@@ -75,7 +78,6 @@ a,
     color:rgb(25, 27, 38);
     font-weight: 700;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 3px rgb(222, 218, 218);
 }
 
 .search-button{
@@ -145,40 +147,6 @@ input[type="text"]:focus{
 }
 
 
-
-/*#navbar{
-    display: grid;
-    border: 1px solid black;
-    grid-template-columns:repeat(auto-fit, manmax(300px, 1fr));
-    grid-template-rows: 3fr;
-    gap: 15px;
-    justify-content: center;
-}*/
-
-/*
-.king-border{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
-    padding: 10px;
-}
-
-.border{
-    background-color: rgba(213, 204, 204, 0.3);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 10px;
-    box-shadow: 2px 2px 5px black;
-    border-radius: 10px;
-}
-
-@media (max-width: 600px){
-    .king-border{
-    grid-template-columns: 1fr;
-    }
-}
-*/
-
 /* Button See More/ See All */
 .button-container {
     display: flex;
@@ -187,6 +155,7 @@ input[type="text"]:focus{
 }
 
 .see-more{
+    margin: 30px 0px;
     align-items: center;
     padding: 12px 17px;
     cursor: pointer;
@@ -207,4 +176,24 @@ input[type="text"]:focus{
 }
 .see-more:active{
     background-color: rgb(121, 118, 118);
+}
+
+/* Pagination */
+.pagination{
+    margin: 50px auto;
+    text-align: center;
+}
+.step-links{
+    color: #454647;
+}
+.step-links a{
+    color: #454647;
+    margin-left: 5px;
+    transition: color ease-in-out 0.2ms;
+}
+.step-links a:hover{
+    opacity:  0.5;
+}
+.step-links a:active{
+    color: #0B0909;
 }

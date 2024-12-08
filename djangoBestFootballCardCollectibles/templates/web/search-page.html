@@ -5,23 +5,23 @@
     <div class="empty-space"></div>
     <div class="specific-tags"> 
         <div class="subcategories">
-            <a href="#" class="special-subcategories">Football</a>
-            <a href="#">Wrestling</a>
-            <a href="#">Comics</a>
-            
+            <a href="{% url 'all_cards' %}">For Sale</a>
+            <a href="{% url 'tags_page' brand='Topps' %}">Topps</a>
+            <a href="{% url 'tags_page' brand='Panini' %}">Panini</a>
+            <a href="{% url 'tags_page' brand='Futera' %}">Futera</a>
+            <a href="{% url 'tags_page' brand='Other' %}">Other</a>
         </div>
         
     </div>
-    <div class="response-container announces-tags">
-        <p> </p>
-    </div>
+    
 
     {% if not results %}
         <!-- If no result/ no items-->
         <div class="no-result"><h1>No Result</h1></div>
         {% else %}
+        <div class="recommend-card space-between" id="recommend-card">
          {% for card in results%}
-         <div class="recommend-card space-between" id="recommend-card">
+         
          <a class="link-card" href="{% url 'card-details' pk=card.pk %}">
             <ul class="border-card">
                 <div class="all-info-card">
@@ -42,8 +42,9 @@
                 </div>
             </ul>
         </a>
-         </div>
+         
      {% endfor %}
+        </div>
     {% endif %}
        
 
@@ -52,17 +53,17 @@
 <div class="pagination">
             <span class="step-links">
                 {% if results.has_previous %}
-                    <a href="?query={{ query }}&page=1">&laquo; first</a>
-                    <a href="?query={{ query }}&page={{ results.previous_page_number }}">previous</a>
+                    <a href="?query={{ query }}&page=1">&laquo; First</a>
+                    <a href="?query={{ query }}&page={{ results.previous_page_number }}">Previous</a>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ results.number }} of {{ results.paginator.num_pages }}.
+                    Page {{ results.number }} of {{ results.paginator.num_pages }}
                 </span>
 
                 {% if results.has_next %}
-                    <a href="?query={{ query }}&page={{ results.next_page_number }}">next</a>
-                    <a href="?query={{ query }}&page={{ results.paginator.num_pages }}">last &raquo;</a>
+                    <a href="?query={{ query }}&page={{ results.next_page_number }}">Next</a>
+                    <a href="?query={{ query }}&page={{ results.paginator.num_pages }}">Last &raquo;</a>
                 {% endif %}
             </span>
         </div>

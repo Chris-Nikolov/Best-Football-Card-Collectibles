@@ -28,13 +28,12 @@
             </div>
         </div>
         <h2 class="product-title">{{ card.title }}</h2>
-        
+        {% if card.price and card.is_approved %}
         <h3 class="product-price">{{ card.price }}$</h3>
+        {% endif %}
         <div class="tags-card">
             <a href="{% url 'index' %}" class="status-card">For sale</a>
-            <a href="#" class="status-card">{{ card.brand }}</a>
-
-
+            <a href="{% url 'tags_page' brand=card.brand %}" class="status-card">{{ card.brand }}</a>
         </div>
         
         <div class="container-product-seller">
@@ -44,17 +43,17 @@
                     <p class="date-reg-seller">Registration: {{ card.owner.profile.created_at }}</p>
                     <p class="last-activity-seller">Last Activity: {{ card.owner.last_login }}</p>
                 </div>
-                
         </div>
         <button class="product-buy">Buy Now</button>
         <button class="write-me">Write Me</button>
         {% csrf_token %}
     </div>
-    {% if user.is_staff or user.is_superuser %}
-        <a href="{% url 'card-delete' pk=card.pk%}"><h4>REMOVE</h4></a>
+    {% if user.is_superuser %}
+        <span><a href="{% url 'card-delete' pk=card.pk%}"><h4>REMOVE</h4></a></span>
+        <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
+    {% elif user.is_staff or user.is_superuser %}
+        <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
     {% endif %}
-
-
 </div>
 <div class="product-container-description">
     <div>
@@ -62,12 +61,10 @@
         <p class="product-description">{{ card.description }}</p>
     </div>
     <a class="report-btn"><i class="fa-regular fa-flag"></i> Report</a>
-
+</div> 
+</form>
     
-
-</div> </form>
-    
-
+<!-- 
 <div class="may-also-like-title">
 
     <h3>May Also Like </h3>
@@ -75,8 +72,8 @@
 <div class="may-also-like-card">
         <div class="recommend-card" id="recommend-card">
 
-            <!-- If no result/ no items
-            <div class="no-result"><h1>No Result</h1></div> -->
+             If no result/ no items
+            <div class="no-result"><h1>No Result</h1></div> 
              
              <a class="link-card" href="#">
                 <ul class="border-card">
@@ -179,6 +176,6 @@
             </a>
            
     </div>
-</div>
+</div> -->
 </main>
 {% endblock %}

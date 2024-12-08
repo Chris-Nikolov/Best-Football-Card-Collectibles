@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% block main_content %}
-<main>
+<main> 
+<div class="size-cont"> 
+<div>
     <div class="empty-space1 noselect"></div>
     <div class="bg-w-profile edit-window"> 
         <h3> <i class="fa-solid fa-circle-user"></i> Account Settings</h3>
@@ -13,20 +15,15 @@
 
                 </div>
                 {{ form.as_p }}
-
-
                 <div class="finish-buttons">
                     <button type="submit" class="update-btn">Update</button>
-                    
                     {% csrf_token %}
                 </div>
             </div>
-           
-       
         </form>
         <button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button>
-        <a href="{% url 'delete-profile' %}">Delete Account</a>
-        
+        <a href="{% url 'delete-profile' %}" class="del-a">Delete Account</a>
     </div>
+</div>
 </main>
 {% endblock %}

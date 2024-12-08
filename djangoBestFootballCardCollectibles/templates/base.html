@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href= >
     <link rel="stylesheet" href="/static/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project2 My card site</title>
+    <title>BFCC</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -21,12 +21,10 @@
     <div class="all-navigation">
         <div class="container">
             <a href="{% url 'index' %}" id="logo" class="nav-link logo" title="Best Football Card Collectibles">BFCC</a>
-            <div class="couple-search-top">
-    <form method="get" action="{% url 'search' %}">
+    <form class="couple-search-top" method="get" action="{% url 'search' %}">
         <input class="search-box" type="text" name="query" placeholder="Search card...">
         <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
-            </div>
             <nav id="navbar" class="navbar-container nav-link">
             <!-- If you don't have a profile -->
                 {% if not user.is_authenticated %}

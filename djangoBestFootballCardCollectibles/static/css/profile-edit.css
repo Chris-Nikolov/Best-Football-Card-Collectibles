@@ -54,7 +54,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
     object-fit: cover;
 }
 .file-image{
@@ -136,6 +135,11 @@ textarea,
 .cancel-btn{
     margin-right: 20px;
     margin-bottom: 20px;
+}
+.cancel-btn a,
+.del-a{
+    color: #00A0F3;
+
 }
 .cancel-btn:hover,
 .avatar-delete-btn:hover,
