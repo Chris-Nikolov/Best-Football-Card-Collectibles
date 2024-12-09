@@ -3,7 +3,8 @@
 <main>
 
     <div class="container-below-navbar">
-        <form action="{% url 'add-card' %}" id="upload-card-form" class="form-container form-cont-style" method="post" enctype="multipart/form-data">
+        <form action="{% url 'add-card' %}" id="upload-card-form" class="form-container form-cont-style th-ch-img" method="post" enctype="multipart/form-data">
+            <h1 class="login-title">Upload Card</h1>
             {{ form }}
             <button type="submit" class="submit-button style-btn">Upload</button>
             {% csrf_token %}

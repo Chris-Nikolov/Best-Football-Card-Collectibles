@@ -14,7 +14,11 @@
                     {% csrf_token %}
                 </div>
         </form>
-        <button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button>
+        <form method="get" action="{% url 'details' %}">
+            <span>
+                <button class="cancel-btn" type="submit"> Cancel</button>
+            </span>
+        </form>
     </div>
     </div>
 </main>

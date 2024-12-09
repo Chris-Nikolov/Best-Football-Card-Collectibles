@@ -2,14 +2,15 @@
 {% block main_content %}
 
 <main>
+    
     <div class="empty-space"></div>
+    <h3>Cards for approval:</h3>
     <div class="response-container announces-tags">
-        <p> </p>
     </div>
 
     {% if not cards%}
         <!-- If no result/ no items-->
-        <div class="no-result"><h1>No Result</h1></div>
+        <div class="no-result"><h1>No cards in the queue.</h1></div>
         {% else %}
         <div class="recommend-card space-between" id="recommend-card">   
 

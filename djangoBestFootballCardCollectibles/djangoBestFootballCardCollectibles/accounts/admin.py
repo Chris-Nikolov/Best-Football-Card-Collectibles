@@ -23,6 +23,6 @@ class BFCCUserAdmin(UserAdmin):
     add_fieldsets = (
         ('Account', {
             "classes": ('wide', 'collapse'),
-            "fields": ('email', 'password1', 'password2'),
+            "fields": ('email', 'password1', 'password2', 'is_staff', 'is_superuser', 'groups'),
         }),
     )

@@ -20,11 +20,16 @@
 <header>
     <div class="all-navigation">
         <div class="container">
+        
+          <div class="navbar-container n-c-first">
             <a href="{% url 'index' %}" id="logo" class="nav-link logo" title="Best Football Card Collectibles">BFCC</a>
     <form class="couple-search-top" method="get" action="{% url 'search' %}">
         <input class="search-box" type="text" name="query" placeholder="Search card...">
         <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
+        
+        </div>
+        
             <nav id="navbar" class="navbar-container nav-link">
             <!-- If you don't have a profile -->
                 {% if not user.is_authenticated %}

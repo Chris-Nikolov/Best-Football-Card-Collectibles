@@ -10,10 +10,13 @@
     flex-direction: column;
     gap: 20px;
 }
+.all-form-area p a{
+    color: #454647;
+}
 .all-form-area p{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    max-width: 500px;
     min-width: 300px;
 }
 

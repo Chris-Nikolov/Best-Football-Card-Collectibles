@@ -29,44 +29,46 @@ main,
 
 @media (max-width: 450px){
     .bg-small{
-        align-items: flex-start !important;
-}
+        align-items: flex-start !important;}
 }
 
 /* For Navigation */
-@media (max-width: 810px){
-    #upload{
-        display: none;        
-    }
-    
-}
-
 @media (max-width: 685px){
     .couple-search-top{
         width: auto;
-        max-width: 150px;
-    
-    }
+        max-width: 150px;}
 }
 @media (max-width: 585px){
-    .logo{
-        font-size:1em;
-    }
     #home{
-        display: none;
-    }
+        display: none;}
     .couple-search{
-        padding: 0px !important;
+        padding: 0px !important;}
+}
+@media  (max-width: 842px){
+    .container{
+        flex-direction: column;
+        gap: 5px;
+    }
+    .n-c-first{
+        justify-content: space-between;
+        text-align: start;
     }
 }
+
+
 
 /* For Edit Profile */
 @media (max-width: 530px){
     .gr-form-acc {
-        max-width: 250px;
-    }
+        max-width: 250px;}
     .avatar-area {
-        flex-direction: column;
-        
+        flex-direction: column;}
+
+    .edit-window {
+        padding: 0px !important;
+    }
+    .bg-w-profile {
+        margin: 200px 0 !important;
+        box-shadow: none !important;
     }
 }

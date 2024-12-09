@@ -2,13 +2,11 @@
 {% block main_content %}
 
     <div class="container-below-navbar">
-        <form action="{% url 'login' %}" id="registration-form" class="form-container" method="post">
+        <form action="{% url 'login' %}" id="registration-form" class="form-container form-cont-style" method="post">
             <h1 class="login-title">Login</h1>
             {{ form }}
-            
             <button type="submit" class="submit-button">Login</button>
             {% csrf_token %}
-            
             <div class="register">
                 <p>Don't have an account <a href="{% url 'register' %}">Registration</a></p>
             </div>

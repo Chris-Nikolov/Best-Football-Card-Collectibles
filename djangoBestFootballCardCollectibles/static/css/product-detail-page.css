@@ -6,7 +6,7 @@
     justify-content: center;
     align-content: center;
     margin: auto;
-    gap: 30px;
+    gap: 70px;
 }
 .product-container a h4{
     color: #00A0F3;
@@ -62,7 +62,6 @@
     flex-direction: column;
     gap: 20px;
     padding: 5px;
-    margin-left: 50px;
 }
 
 .container-p-date-fav-edit{

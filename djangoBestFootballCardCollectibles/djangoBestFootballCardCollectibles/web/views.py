@@ -26,7 +26,7 @@ class StaffPageView(UserPassesTestMixin, ListView):
         return self.request.user.is_staff
 
     def get_queryset(self):
-        return Card.objects.filter(is_approved=False, is_for_sale=True).order_by('-created_at')
+        return Card.objects.filter(is_approved=False, is_for_sale=True).order_by('created_at')
 
 
 def search(request):

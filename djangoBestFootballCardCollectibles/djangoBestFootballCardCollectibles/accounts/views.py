@@ -88,3 +88,18 @@ class DeactivateProfileView(LoginRequiredMixin, View):
             Card.objects.filter(owner=user).update(is_approved=False)
 
             return redirect(self.success_url)
+
+
+class ProfilesView(DetailView):
+    model = Profile
+    template_name = 'accounts/profile-pk.html'
+
+    def get_object(self):
+        return Profile.objects.get(pk=self.kwargs['pk'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profile = self.get_object()
+        context['profile'] = profile
+        context['cards'] = Card.objects.filter(owner=profile.user, is_approved=True).order_by('-created_at')
+        return context

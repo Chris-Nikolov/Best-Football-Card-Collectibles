@@ -162,5 +162,16 @@ textarea{
     min-height: auto;
 }
 
+/* specifically form with image and for sale - upload card and profile edit */
+
+.th-ch-img p:nth-child(4),
+.th-ch-img div:nth-child(4){
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.th-ch-img p:nth-child(4){
+       overflow: hidden;
+}
 
 

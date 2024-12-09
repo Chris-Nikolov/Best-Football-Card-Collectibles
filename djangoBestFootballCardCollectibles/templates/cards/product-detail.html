@@ -18,7 +18,7 @@
     <div class="product">
         <div class="container-p-date-fav-edit">
             <p class="product-date">{{ card.created_at }}</p>
-            <div class="group-bins">
+            <div class="group-btns">
                 <a class="favorite-btn"><i class="fa-solid fa-heart"></i></a>
                 <!-- If it is my post card-->
                 {% if user == card.owner %}
@@ -37,9 +37,9 @@
         </div>
         
         <div class="container-product-seller">
-                <a href="" ><img class="img-seller" src="{{ card.owner.profile.get_profile_picture_url }}"></a>
+                <a href="{% url 'profile-pk' pk=card.owner.pk %}" ><img class="img-seller" src="{{ card.owner.profile.get_profile_picture_url }}"></a>
                 <div>
-                    <a href=""  class="product-seller">{{ card.owner.profile.first_name }} {{ card.owner.profile.last_name }}</a>
+                    <a href="{% url 'profile-pk' pk=card.owner.pk %}"  class="product-seller">{{ card.owner.profile.first_name }} {{ card.owner.profile.last_name }}</a>
                     <p class="date-reg-seller">Registration: {{ card.owner.profile.created_at }}</p>
                     <p class="last-activity-seller">Last Activity: {{ card.owner.last_login }}</p>
                 </div>
@@ -61,8 +61,15 @@
         <p class="product-description">{{ card.description }}</p>
     </div>
     <a class="report-btn"><i class="fa-regular fa-flag"></i> Report</a>
+    
+     
 </div> 
 </form>
+<form method="get" action="{% url 'details' %}"> 
+         <span>
+             <button class="report-btn" type="submit"><i class="fa-regular fa-flag"></i> Report </button>
+         </span>
+     </form>
     
 <!-- 
 <div class="may-also-like-title">
