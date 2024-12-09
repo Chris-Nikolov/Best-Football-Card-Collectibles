@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block main_content %}
+
+<main>
+    <div class="empty-space"></div>
+    
+    <div class="response-container announces-tags">
+        <p> </p>
+    </div>
+
+    {% if not notifications%}
+        <!-- If no result/ no items-->
+        <div class="no-result"><h1>No Notifications</h1></div>
+        {% else %}
+         <div class="recommend-card space-between" id="recommend-card">
+         {% for n in notifications%}
+        
+         
+            <ul class="border-card">
+                <div class="all-info-card">
+                    
+
+                    <div class="group-price-status">
+                       
+                        <li class="status-card">For Sale</li>
+                    </div>
+                    <li class="title-card">{{ n.title }}</li>
+                    <ul class="seller-info">
+                            
+                            <div class="seller-contact">
+                                <li class="seller-name">{{ n.content}}</li>
+                                <li class="seller-time-publication">{{ n.date }}</li>
+                            </div>
+                    </ul>
+                </div>
+            </ul>
+        
+        
+     {% endfor %}
+         </div>
+    {% endif %}
+       
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; First</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</main>
+{% endblock %}

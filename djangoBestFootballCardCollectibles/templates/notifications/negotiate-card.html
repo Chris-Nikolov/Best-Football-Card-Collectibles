@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block main_content %}
+<main>
+
+    <div class="container-below-navbar">
+        <form action="{% url 'negotiate_card' card.id %}" class="form-container" method="post" enctype="multipart/form-data">
+            {{ form }}
+            <h1 class="text">Do you really want to send your phone number to the seller?:</h1>
+            <h3 class="text text-h1">{{ card.title }}</h3>
+            <button type="submit" class="submit-button">Ask for a Call</button>
+            {% csrf_token %}
+
+
+
+        </form>
+        
+    </div>
+</main>
+{% endblock %}

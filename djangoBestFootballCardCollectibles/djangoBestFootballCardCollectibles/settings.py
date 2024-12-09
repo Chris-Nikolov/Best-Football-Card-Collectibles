@@ -43,7 +43,8 @@ CUSTOM_APPS = [
     'cloudinary_storage',
     'djangoBestFootballCardCollectibles.accounts',
     'djangoBestFootballCardCollectibles.cards',
-    'djangoBestFootballCardCollectibles.web'
+    'djangoBestFootballCardCollectibles.web',
+    'djangoBestFootballCardCollectibles.notifications'
 ]
 
 INSTALLED_APPS = [

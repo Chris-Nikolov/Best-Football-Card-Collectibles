@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from djangoBestFootballCardCollectibles import notifications
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('djangoBestFootballCardCollectibles.web.urls')),
     path('profile/', include('djangoBestFootballCardCollectibles.accounts.urls')),
     path('card/', include('djangoBestFootballCardCollectibles.cards.urls')),
+    path('notifications/', include('djangoBestFootballCardCollectibles.notifications.urls')),
 ]

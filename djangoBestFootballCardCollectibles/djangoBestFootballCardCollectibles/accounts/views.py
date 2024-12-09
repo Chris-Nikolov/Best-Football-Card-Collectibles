@@ -103,3 +103,4 @@ class ProfilesView(DetailView):
         context['profile'] = profile
         context['cards'] = Card.objects.filter(owner=profile.user, is_approved=True).order_by('-created_at')
         return context
+

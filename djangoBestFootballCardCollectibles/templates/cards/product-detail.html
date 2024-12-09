@@ -44,8 +44,7 @@
                     <p class="last-activity-seller">Last Activity: {{ card.owner.last_login }}</p>
                 </div>
         </div>
-        <button class="product-buy">Buy Now</button>
-        <button class="write-me">Write Me</button>
+        
         {% csrf_token %}
     </div>
     {% if user.is_superuser %}
@@ -61,11 +60,13 @@
         <p class="product-description">{{ card.description }}</p>
     </div>
     <a class="report-btn"><i class="fa-regular fa-flag"></i> Report</a>
-    
-     
+
+
 </div> 
 </form>
-<form method="get" action="{% url 'details' %}"> 
+<button class="product-buy"><a href="{% url 'purchase_card' card.id %}">Buy Now</a></button>
+<button class="product-buy"><a href="{% url 'negotiate_card' card.id %}">Ask for a Call</a></button>
+<form method="get" action="{% url 'details' %}">
          <span>
              <button class="report-btn" type="submit"><i class="fa-regular fa-flag"></i> Report </button>
          </span>
