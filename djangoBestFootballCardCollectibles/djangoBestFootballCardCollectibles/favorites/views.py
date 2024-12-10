@@ -24,7 +24,7 @@ def remove_from_favorites(request, card_id):
     card = get_object_or_404(Card, id=card_id)
     favorite = get_object_or_404(Favorite, user=request.user, card=card)
     favorite.delete()
-    return redirect('my-favorites', pk=card_id)
+    return redirect('my-favorites')
 
 
 class FavoriteListView(LoginRequiredMixin, ListView):
