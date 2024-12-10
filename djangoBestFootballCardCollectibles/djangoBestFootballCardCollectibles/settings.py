@@ -44,7 +44,9 @@ CUSTOM_APPS = [
     'djangoBestFootballCardCollectibles.accounts',
     'djangoBestFootballCardCollectibles.cards',
     'djangoBestFootballCardCollectibles.web',
-    'djangoBestFootballCardCollectibles.notifications'
+    'djangoBestFootballCardCollectibles.notifications',
+    'djangoBestFootballCardCollectibles.favorites',
+    'djangoBestFootballCardCollectibles.reports'
 ]
 
 INSTALLED_APPS = [

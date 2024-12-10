@@ -2,83 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href= >
+    <link rel="icon" type="image/png" href=>
     <link rel="stylesheet" href="/static/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFCC</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
- {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <header>
     <div class="all-navigation">
         <div class="container">
-        
-          <div class="navbar-container n-c-first">
-            <a href="{% url 'index' %}" id="logo" class="nav-link logo" title="Best Football Card Collectibles">BFCC</a>
-    <form class="couple-search-top" method="get" action="{% url 'search' %}">
-        <input class="search-box" type="text" name="query" placeholder="Search card...">
-        <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
-        
-        </div>
-        
+
+            <div class="navbar-container n-c-first">
+                <a href="{% url 'index' %}" id="logo" class="nav-link logo"
+                   title="Best Football Card Collectibles">BFCC</a>
+                <form class="couple-search-top" method="get" action="{% url 'search' %}">
+                    <input class="search-box" type="text" name="query" placeholder="Search card...">
+                    <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+
+            </div>
+
             <nav id="navbar" class="navbar-container nav-link">
-            <!-- If you don't have a profile -->
+                <!-- If you don't have a profile -->
                 {% if not user.is_authenticated %}
-                <a href="{% url 'login' %}" class="navbar-item nav-link" id="login">Login</a>
+                    <a href="{% url 'login' %}" class="navbar-item nav-link" id="login">Login</a>
                 {% else %}
-            <!-- If you HAVE profile  -->
-                     <form action="{% url 'logout' %}" method="post" class="navbar-item nav-link" id="logout-form">
+                    <!-- If you HAVE profile  -->
+                    <form action="{% url 'logout' %}" method="post" class="navbar-item nav-link" id="logout-form">
                         {% csrf_token %}
-                    <button type="submit" class="custom-button">Logout</button>
+                        <button type="submit" class="custom-button">Logout</button>
                     </form>
-            <a href="{% url 'my_archive' %}" class="navbar-item nav-link" id="my-favorite-card" title="Archive"><i class="fa-solid fa-book"></i></a>
+                    <a href="{% url 'my_archive' %}" class="navbar-item nav-link" id="my-favorite-card" title="Archive"><i
+                            class="fa-solid fa-book"></i></a>
                     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    fetch('/notifications/api/unread-notifications/')
-        .then(response => response.json())
-        .then(data => {
-            const unreadCount = data.unread_notifications;
-            if (unreadCount > 0) {
-                const notificationElement = document.querySelector('.message-icon-notification');
-                notificationElement.textContent = unreadCount;
-                notificationElement.style.display = 'block';
-            }
-        });
-    });
-            </script>
-            <a href="{% url 'my_notifications' %}" class="navbar-item nav-link" id="message" title="Notifications">
-            <i class="fa-solid fa-envelope">
-            <span class="message-icon-notification" style="display: none;"></span>
-            </i>
-            </a>
-            <a href="{% url 'details' %}" class="navbar-item nav-link" id="my-profile" title="Profile"><img class="navbar-profile-picture" src="{{ user.profile.get_profile_picture_url }}"> </a>
-            <a href="{% url 'add-card' %}" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            fetch('/notifications/api/unread-notifications/')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const unreadCount = data.unread_notifications;
+                                    if (unreadCount > 0) {
+                                        const notificationElement = document.querySelector('.message-icon-notification');
+                                        notificationElement.textContent = unreadCount;
+                                        notificationElement.style.display = 'block';
+                                    }
+                                });
+                        });
+                    </script>
+                    
+                    <a href="{% url 'my-favorites' %}" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Cards"><i class="fa-solid fa-heart"></i></a>
+                    <a href="{% url 'my_notifications' %}" class="navbar-item nav-link" id="message"
+                       title="Notifications">
+                        <i class="fa-solid fa-envelope">
+                            <span class="message-icon-notification" style="display: none;"></span>
+                        </i>
+                    </a>
+                    <a href="{% url 'details' %}" class="navbar-item nav-link" id="my-profile" title="Profile"><img
+                            class="navbar-profile-picture" src="{{ user.profile.get_profile_picture_url }}"> </a>
+                    <a href="{% url 'add-card' %}" class="navbar-item nav-link" id="upload"><i title="Upload"
+                                                                                               class="fa-solid fa-arrow-up-from-bracket"></i>
+                        Upload</a>
                 {% endif %}
-            {% if user.is_staff or user.is_superuser %}
-            <a href="{% url 'staff_page' %}"><h3>Staff page</h3></a>
-            {% endif %}
+                {% if user.is_staff or user.is_superuser %}
+                    <a href="{% url 'staff_page' %}"><h3>Staff page</h3></a>
+                {% endif %}
             </nav>
         </div>
     </div>
 </header>
 
- {% block main_content %}
- {% endblock %}
+{% block main_content %}
+{% endblock %}
 
 <footer>
     <div class="footer-all-content">
         <div class="f-logo-social">
             <span><a class="footer-logo" href="#" title="Best Football Card Collectibles">Best Football Card Collectibles</a></span>
-            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
+            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt
+                alias!</p>
             <aside class="social-media">
                 <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
                 <a href="#"><i title="GitHub" class="fa-brands fa-github"></i></a>
@@ -104,10 +115,10 @@
             </div>
         </div>
     </div>
-    
+
 </footer>
 <p class="copyright">&copy; 2024</p>
- 
+
 <script src="/static/js/script.js"></script>
 </body>
 </html>

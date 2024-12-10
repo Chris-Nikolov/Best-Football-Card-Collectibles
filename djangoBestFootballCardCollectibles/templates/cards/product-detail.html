@@ -26,7 +26,7 @@
         <div class="container-p-date-fav-edit">
             <p class="product-date">{{ card.created_at }}</p>
             <div class="group-btns">
-                <a class="favorite-btn"><i class="fa-solid fa-heart"></i></a>
+                <a href="{% url 'add_to_favorites' card.id %}"  class="favorite-btn"><i class="fa-solid fa-heart"></i></a>
                 <!-- If it is my post card-->
                 {% if user == card.owner %}
                 <a href="{% url 'card-edit' pk=card.pk %}" class="edit-card-btn">Edit</a>
@@ -72,7 +72,7 @@
          </span>
     </form>
 </div>
-    
+
 <!-- 
 <div class="may-also-like-title">
 

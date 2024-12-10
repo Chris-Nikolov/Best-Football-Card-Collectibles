@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from djangoBestFootballCardCollectibles import notifications
+from djangoBestFootballCardCollectibles import notifications, reports
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('profile/', include('djangoBestFootballCardCollectibles.accounts.urls')),
     path('card/', include('djangoBestFootballCardCollectibles.cards.urls')),
     path('notifications/', include('djangoBestFootballCardCollectibles.notifications.urls')),
+    path('reports/', include('djangoBestFootballCardCollectibles.reports.urls')),
+    path('favorites/', include('djangoBestFootballCardCollectibles.favorites.urls')),
 ]
