@@ -100,11 +100,11 @@ z-index: 0;
     justify-content: center;
 }
 .message-icon-notification{
-    display: none;
-    
+    display: block;
+
 }
 
-.on-notification .message-icon-notification{
+.message-icon-notification{
     position: absolute;
     top: -9px;
     right: -10px;

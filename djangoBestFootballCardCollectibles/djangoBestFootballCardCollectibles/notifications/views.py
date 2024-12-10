@@ -1,9 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib import messages
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from .models import Notifications, Card
 from .forms import NotificationForm
@@ -113,3 +114,35 @@ class UserNotificationsView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         return Notifications.objects.filter(receiver=self.request.user, is_archived=False).order_by('-date')
+
+
+class UserArchiveView(LoginRequiredMixin, ListView):
+    model = Notifications
+    template_name = 'notifications/my-archive.html'
+    context_object_name = 'notifications'
+    paginate_by = 5
+
+    def get_queryset(self):
+        return Notifications.objects.filter(receiver=self.request.user, is_archived=True)
+
+
+class ArchiveNotificationView(LoginRequiredMixin, View):
+    def post(self, request, n_id):
+        notification = Notifications.objects.get(id=n_id, receiver=request.user)
+        notification.is_archived = True
+        notification.save()
+        return redirect('my_notifications')
+
+
+class ReturnNotificationView(LoginRequiredMixin, View):
+    def post(self, request, n_id):
+        notification = Notifications.objects.get(id=n_id, receiver=request.user)
+        notification.is_archived = False
+        notification.save()
+        return redirect('my_archive')
+
+
+@login_required
+def get_unread_notifications(request):
+    unread_notifications = Notifications.objects.filter(receiver=request.user, is_archived=False).count()
+    return JsonResponse({'unread_notifications': unread_notifications})

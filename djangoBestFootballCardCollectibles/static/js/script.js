@@ -1,14 +1,12 @@
-
 // For Navigation Bar //
-window.addEventListener('scroll', function(){
+window.addEventListener('scroll', function () {
     const nav = document.querySelector('.container');
     const links = nav.querySelectorAll('a');
     const coupleSearchTop = document.querySelector('.couple-search-top');
-    if (window.scrollY > 20){
+    if (window.scrollY > 20) {
         nav.style.backgroundColor = '#EFF0F1';
         nav.classList.add('scrolled');
-    }
-    else{
+    } else {
         nav.style.backgroundColor = 'transparent';
         nav.classList.remove('scrolled');
     }

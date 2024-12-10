@@ -165,7 +165,8 @@ textarea{
 /* specifically form with image and for sale - upload card and profile edit */
 
 .th-ch-img p:nth-child(4),
-.th-ch-img div:nth-child(4){
+.th-ch-img div:nth-child(4),
+.seven-ch-img div:nth-child(7){
     flex-direction: row;
     flex-wrap: wrap;
 }

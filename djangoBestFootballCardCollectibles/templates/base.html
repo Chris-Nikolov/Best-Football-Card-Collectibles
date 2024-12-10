@@ -40,9 +40,26 @@
                         {% csrf_token %}
                     <button type="submit" class="custom-button">Logout</button>
                     </form>
-            <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
-            <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"> <span class="message-icon-notification">3</span> </i></a>
-
+            <a href="{% url 'my_archive' %}" class="navbar-item nav-link" id="my-favorite-card" title="Archive"><i class="fa-solid fa-book"></i></a>
+                    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('/notifications/api/unread-notifications/')
+        .then(response => response.json())
+        .then(data => {
+            const unreadCount = data.unread_notifications;
+            if (unreadCount > 0) {
+                const notificationElement = document.querySelector('.message-icon-notification');
+                notificationElement.textContent = unreadCount;
+                notificationElement.style.display = 'block';
+            }
+        });
+    });
+            </script>
+            <a href="{% url 'my_notifications' %}" class="navbar-item nav-link" id="message" title="Notifications">
+            <i class="fa-solid fa-envelope">
+            <span class="message-icon-notification" style="display: none;"></span>
+            </i>
+            </a>
             <a href="{% url 'details' %}" class="navbar-item nav-link" id="my-profile" title="Profile"><img class="navbar-profile-picture" src="{{ user.profile.get_profile_picture_url }}"> </a>
             <a href="{% url 'add-card' %}" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>
                 {% endif %}
@@ -60,7 +77,7 @@
 <footer>
     <div class="footer-all-content">
         <div class="f-logo-social">
-            <a class="footer-logo" href="#" title="Best Football Card Collectibles">Best Football Card Collectibles</a>
+            <span><a class="footer-logo" href="#" title="Best Football Card Collectibles">Best Football Card Collectibles</a></span>
             <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
             <aside class="social-media">
                 <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>

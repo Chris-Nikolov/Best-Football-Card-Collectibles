@@ -3,7 +3,9 @@
 <main>
 
     <div class="container-below-navbar">
-        <form action="{% url 'card-edit' pk=object.pk %}" class="form-container" method="post" enctype="multipart/form-data">
+        <form action="{% url 'card-edit' pk=object.pk %}" class="form-container form-cont-style th-ch-img seven-ch-img method="post" enctype="multipart/form-data">
+            <h1 class="login-title">Edit Card</h1>
+
             {{ form }}
             
             <button type="submit" class="submit-button">Update</button>
