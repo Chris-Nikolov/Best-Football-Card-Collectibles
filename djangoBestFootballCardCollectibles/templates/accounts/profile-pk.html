@@ -7,14 +7,14 @@
                 <div class="my-profile-account">
                     <img src="{{ profile.get_profile_picture_url }}">
                     <h3 class="full-name">{{ profile.first_name }} {{ profile.last_name }}</h3>
-                    <p class="username">@{{ profile.first_name.lower }}{{ profile.pk }}{{ profile.pk }}</p>
+                    <br>
                     <p class="descr-profile"> {{ profile.description }} </p>
                 </div>
                 <div class="bg-small">
                     <div class="bins">
-                        <!-- If it is your profile-->
-                        <a href="{% url 'index' %}" class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i>
-                            Report</a>
+{#                        <!-- If it is your profile-->#}
+{#                        <a href="{% url 'index' %}" class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i>#}
+{#                            Report</a>#}
                     </div>
                 </div>
                 <div class="bg-large"></div>

@@ -1,84 +1,70 @@
 {% extends 'base.html' %}
 {% block main_content %}
-    
-        <div class="search-image">
-            <img src="https://cdn.pixabay.com/photo/2014/10/14/20/24/football-488714_960_720.jpg" alt="Search Image" class="background-img">
+
+    <div class="search-image">
+        <img src="https://cdn.pixabay.com/photo/2014/10/14/20/24/football-488714_960_720.jpg" alt="Search Image"
+             class="background-img">
         <div id="search-bar">
-            {% if user.is_authenticated and  user.profile.first_name%}
-            <h1>Hello, {{ user.profile.first_name }}!</h1>
+            {% if user.is_authenticated and  user.profile.first_name %}
+                <h1>Hello, {{ user.profile.first_name }}!</h1>
             {% endif %}
             <h4>Check the best football cards! Your next favorite collectibles are waiting!</h4>
-            
-    <form class="couple-search" method="get" action="{% url 'search' %}">
-        <input class="search-box" type="text" name="query" placeholder="Search..." title="Search">
-        <button class="search-button" type="submit" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
+
+            <form class="couple-search" method="get" action="{% url 'search' %}">
+                <input class="search-box" type="text" name="query" placeholder="Search..." title="Search">
+                <button class="search-button" type="submit" title="Search"><i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
         </div>
     </div>
     <main>
 
-{#        <div class="generic-tags"> #}
-{#            <div class="genre">#}
-{#                <a href="#"><i class="fa-solid fa-house"></i> Home</a>#}
-{#                <a href="#">Cards</a>#}
-{#                <a href="#">Figures</a>#}
-{#                <a href="#">Toys</a>#}
-{#                <a href="#">Board Games</a>#}
-{#            </div>#}
+        <div class="specific-tags">
+            <div class="subcategories">
+                <a href="{% url 'all_cards' %}">For Sale</a>
+                <a href="{% url 'tags_page' brand='Topps' %}">Topps</a>
+                <a href="{% url 'tags_page' brand='Panini' %}">Panini</a>
+                <a href="{% url 'tags_page' brand='Futera' %}">Futera</a>
+                <a href="{% url 'tags_page' brand='Other' %}">Other</a>
+            </div>
         </div>
-
-        <div class="specific-tags"> 
-        <div class="subcategories">
-            <a href="{% url 'all_cards' %}">For Sale</a>
-            <a href="{% url 'tags_page' brand='Topps' %}">Topps</a>
-            <a href="{% url 'tags_page' brand='Panini' %}">Panini</a>
-            <a href="{% url 'tags_page' brand='Futera' %}">Futera</a>
-            <a href="{% url 'tags_page' brand='Other' %}">Other</a>
-        </div>
-{#        <select class="sort" name="sorting" id="sort">#}
-{#            <option value="Newest" selected >Newest</option>#}
-{#            <option value="Oldest">Oldest</option>#}
-{#            <option value="Cheapest">Cheapest</option>#}
-{#            <option value="Most expensive">Most expensive</option>#}
-{#            <option value="By default">By default<option>#}
-{#        </select>#}
-    </div>
 
         <div class="recommend-card" id="recommend-card">
-        {% if not cards%}
-        <!-- If no result/ no items-->
-        <div class="no-result"><h1>No Result</h1></div>
-        {% else %}
-         {% for card in cards%}
-         {% if card.is_for_sale %}
-         <a class="link-card" href="{% url 'card-details' pk=card.pk %}">
-            <ul class="border-card">
-                <div class="all-info-card">
-                    <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
+            {% if not cards %}
+                <!-- If no result/ no items-->
+                <div class="no-result"><h1>No Result</h1></div>
+            {% else %}
+                {% for card in cards %}
+                    {% if card.is_for_sale %}
+                        <a class="link-card" href="{% url 'card-details' pk=card.pk %}">
+                            <ul class="border-card">
+                                <div class="all-info-card">
+                                    <img src="{{ card.image.url }}" class="image-card" alt="Card Image">
 
-                    <div class="group-price-status">
-                        <li class="price-card">{{ card.price }}</li>
-                        <li class="status-card">For Sale</li>
-                    </div>
-                    <li class="title-card">{{ card.title }}</li>
-                    <ul class="seller-info">
-                            <img src="{{ card.owner.profile.get_profile_picture_url }}" class="seller-image" alt="Seller Image">
-                            <div class="seller-contact">
-                                <li class="seller-name">{{ card.owner.profile.first_name}}</li>
-                                <li class="seller-time-publication">{{ card.created_at }}</li>
-                            </div>
-                    </ul>
-                </div>
-            </ul>
-        </a>
-        {% endif %}
-     {% endfor %}
-    {% endif %}
-    </div>
-    <div class="button-container">
-  <form method="get" action="{% url 'all_cards' %}">
-        <button type="submit" class="see-more dashboard">See More</button>
-  </form>
-    </div>
+                                    <div class="group-price-status">
+                                        <li class="price-card">{{ card.price }}</li>
+                                        <li class="status-card">For Sale</li>
+                                    </div>
+                                    <li class="title-card">{{ card.title }}</li>
+                                    <ul class="seller-info">
+                                        <img src="{{ card.owner.profile.get_profile_picture_url }}" class="seller-image"
+                                             alt="Seller Image">
+                                        <div class="seller-contact">
+                                            <li class="seller-name">{{ card.owner.profile.first_name }}</li>
+                                            <li class="seller-time-publication">{{ card.created_at }}</li>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="button-container">
+            <form method="get" action="{% url 'all_cards' %}">
+                <button type="submit" class="see-more dashboard">See More</button>
+            </form>
+        </div>
     </main>
 {% endblock %}

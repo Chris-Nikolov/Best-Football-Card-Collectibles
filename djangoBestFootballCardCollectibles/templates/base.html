@@ -103,15 +103,13 @@
             </aside>
         </div>
         <div class="footer-links">
-            <div class="discover">
-                <span>Discover</span>
-                <a href="#">Popular Cards</a>
-            </div>
             <div class="community">
-                <span>Community</span>
-                <a href="#">Blog</a>
-                <a href="#">Forum</a>
-                <a href="#">Creators</a>
+                <span>Category</span>
+                <a href="{% url 'all_cards' %}">For Sale</a>
+                <a href="{% url 'tags_page' brand='Topps' %}">Topps</a>
+                <a href="{% url 'tags_page' brand='Panini' %}">Panini</a>
+                <a href="{% url 'tags_page' brand='Futera' %}">Futera</a>
+                <a href="{% url 'tags_page' brand='Other' %}">Other</a>
             </div>
             <div class="about">
                 <span>About</span>

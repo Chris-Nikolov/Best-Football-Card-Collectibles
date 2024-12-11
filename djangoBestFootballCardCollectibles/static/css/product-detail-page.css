@@ -18,6 +18,7 @@
     color: #a6cfe7;
 }
 
+
 .product-container-description {
     max-width: 400px;
     display: flex;
@@ -190,6 +191,23 @@
 .last-activity-seller {
     font-size: 0.8em;
 }
+
+.c-b-c {
+    text-align: center;
+    margin: 20px auto;
+
+}
+.c-b-c a {
+
+}
+.c-b-c a button {
+    padding: 10px 25px;
+     margin: 10px;
+}
+.p-b {
+    background-color: transparent;
+}
+
 
 .product-buy:hover,
 .write-me:hover,

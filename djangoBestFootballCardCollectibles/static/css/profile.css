@@ -130,7 +130,11 @@
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
+    max-height: 1200px;
+    overflow: auto;
+}
+.card-area::-webkit-scrollbar {
+  display: none;
 }
 
 .card-area a {

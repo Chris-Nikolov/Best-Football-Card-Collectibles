@@ -10,6 +10,7 @@
                 <div>
                     {% if user.is_superuser %}
                         <span><a href="{% url 'card-delete' pk=card.pk %}"><h4>REMOVE</h4></a></span>
+                        <br>
                         <span><a href="{% url 'card-disapprove' pk=card.pk %}"><h4>DISAPPROVE</h4></a></span>
                     {% elif user.is_staff or user.is_superuser %}
                         <span><a href="{% url 'card-disapprove' pk=card.pk %}"><h4>DISAPPROVE</h4></a></span>
@@ -69,21 +70,20 @@
             </div>
         </form>
         {% if user.is_authenticated %}
-            <div class="">
+            <div class="c-b-c product-c">
                 <a href="{% url 'purchase_card' card.id %}">
                     <button class="product-buy">Buy Now</button>
                 </a>
                 <a href="{% url 'negotiate_card' card.id %}">
-                    <button class="product-buy">Ask for a Call</button>
+                    <button class="product-buy p-b">Ask for a Call</button>
                 </a>
-                <span>
+            </div>
+            <span class="product-container">
                 <a href="{% url 'create-report' card.id %}" class="report-btn">
                 <i class="fa-regular fa-flag"></i> Report
                 </a>
             </span>
-            </div>
-
+            
         {% endif %}
-
     </main>
 {% endblock %}

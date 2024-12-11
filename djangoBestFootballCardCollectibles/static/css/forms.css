@@ -43,6 +43,9 @@
     }
 }
 
+.form-bg {
+    background: #b8baba;
+}
 
 .reg-title,
 .login-title {
