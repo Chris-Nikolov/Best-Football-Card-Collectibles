@@ -9,20 +9,13 @@ from django.templatetags.static import static
 
 from djangoBestFootballCardCollectibles.accounts.forms import BFCCUserCreationForm, ProfileEditForm, \
     DeactivateProfileForm
+from djangoBestFootballCardCollectibles.accounts.mixins import AnonymousRequiredMixin
 from djangoBestFootballCardCollectibles.accounts.models import Profile
 from djangoBestFootballCardCollectibles.cards.models import Card
 
 # Create your views here.
 
 UserModel = get_user_model()
-
-
-class AnonymousRequiredMixin:
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            messages.info(request, 'You are already logged in!')
-            return redirect('index')
-        return super().dispatch(request, *args, **kwargs)
 
 
 class UserRegisterView(AnonymousRequiredMixin, CreateView):
@@ -32,9 +25,11 @@ class UserRegisterView(AnonymousRequiredMixin, CreateView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
+
         response = super().form_valid(form)
         user = form.save()
         login(self.request, user)
+
         return response
 
 
@@ -51,23 +46,30 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
     template_name = 'accounts/profile.html'
 
     def get_object(self):
+
         return Profile.objects.get(user=self.request.user)
 
     def get_context_data(self, **kwargs):
+
         context = super().get_context_data(**kwargs)
         profile = self.get_object()
+
         context['profile'] = profile
         context['cards'] = Card.objects.filter(owner=self.request.user).order_by('-created_at')
+
         return context
 
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
+
     model = Profile
+
     form_class = ProfileEditForm
     template_name = 'accounts/profile-edit.html'
     success_url = reverse_lazy('details')
 
     def get_object(self):
+
         return Profile.objects.get(user=self.request.user)
 
 
@@ -75,12 +77,16 @@ class DeactivateProfileView(LoginRequiredMixin, View):
     success_url = reverse_lazy('index')
 
     def get(self, request, *args, **kwargs):
+
         form = DeactivateProfileForm()
+
         return render(request, 'accounts/profile-delete.html', {'form': form})
 
     def post(self, request, *args, **kwargs):
         form = DeactivateProfileForm(request.POST)
+
         if form.is_valid():
+
             user = request.user
             user.is_active = False
             user.save()
@@ -91,16 +97,19 @@ class DeactivateProfileView(LoginRequiredMixin, View):
 
 
 class ProfilesView(DetailView):
+
     model = Profile
     template_name = 'accounts/profile-pk.html'
 
     def get_object(self):
+
         return Profile.objects.get(pk=self.kwargs['pk'])
 
     def get_context_data(self, **kwargs):
+
         context = super().get_context_data(**kwargs)
         profile = self.get_object()
         context['profile'] = profile
         context['cards'] = Card.objects.filter(owner=profile.user, is_approved=True).order_by('-created_at')
-        return context
 
+        return context

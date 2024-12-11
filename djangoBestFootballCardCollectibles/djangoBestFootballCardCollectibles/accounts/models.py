@@ -6,7 +6,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 from djangoBestFootballCardCollectibles.accounts.validators import (name_validator, phone_validator,
-                                                                    validate_profile_picture_size,)
+                                                                    validate_profile_picture_size, )
 
 
 class BFCCUserManager(BaseUserManager):
@@ -29,8 +29,10 @@ class BFCCUserManager(BaseUserManager):
         return user
 
     def create_user(self, email=None, password=None, **extra_fields):
+
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
+
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email=None, password=None, **extra_fields):
@@ -39,6 +41,7 @@ class BFCCUserManager(BaseUserManager):
 
         if extra_fields.get("is_staff") is not True:
             raise ValueError("Superuser must have is_staff=True.")
+
         if extra_fields.get("is_superuser") is not True:
             raise ValueError("Superuser must have is_superuser=True.")
 
@@ -67,9 +70,11 @@ class Profile(models.Model):
 
     first_name = models.CharField(validators=[name_validator, MaxLengthValidator(25), MinLengthValidator(2)],
                                   verbose_name="First Name", null=True, blank=True)
+
     last_name = models.CharField(validators=[name_validator, MaxLengthValidator(25), MinLengthValidator(2)],
                                  verbose_name="Last Name", null=True, blank=True)
-    profile_picture = CloudinaryField('image', blank=True, null=True, validators=[validate_profile_picture_size],)
+
+    profile_picture = CloudinaryField('image', blank=True, null=True, validators=[validate_profile_picture_size], )
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
 
