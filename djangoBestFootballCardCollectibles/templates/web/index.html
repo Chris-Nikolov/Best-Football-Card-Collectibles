@@ -61,10 +61,12 @@
                 {% endfor %}
             {% endif %}
         </div>
+        {% if cards %}
         <div class="button-container">
             <form method="get" action="{% url 'all_cards' %}">
                 <button type="submit" class="see-more dashboard">See More</button>
             </form>
         </div>
+        {% endif %}
     </main>
 {% endblock %}
