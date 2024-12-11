@@ -70,6 +70,7 @@
             </div>
         </form>
         {% if user.is_authenticated %}
+            {% if card.is_approved %}
             <div class="c-b-c product-c">
                 <a href="{% url 'purchase_card' card.id %}">
                     <button class="product-buy">Buy Now</button>
@@ -78,6 +79,7 @@
                     <button class="product-buy p-b">Ask for a Call</button>
                 </a>
             </div>
+                {% endif %}
             <span class="product-container">
                 <a href="{% url 'create-report' card.id %}" class="report-btn">
                 <i class="fa-regular fa-flag"></i> Report
