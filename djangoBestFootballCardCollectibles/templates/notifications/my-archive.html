@@ -1,42 +1,44 @@
 {% extends 'base.html' %}
 {% block main_content %}
 
-<main>
-    <div class="empty-space"></div>
-    <div class=" announces-tags">
-        <h2><i class="fa-solid fa-book"></i> Archive</h2>
-    </div>
-    <br> <br>
+    <main>
+        <div class="empty-space"></div>
+        <div class=" announces-tags">
+            <h2><i class="fa-solid fa-book"></i> Archive</h2>
+        </div>
+        <br> <br>
 
-    {% if not notifications%}
-        <!-- If no result/ no items-->
-        <div class="no-result"><h1>No archived data</h1></div>
+        {% if not notifications %}
+            <!-- If no result/ no items-->
+            <div class="no-result"><h1>No archived data</h1></div>
         {% else %}
-         <div class="recommend-card space-between" id="recommend-card">
-         {% for n in notifications%}
+            <div class="recommend-card space-between" id="recommend-card">
+                {% for n in notifications %}
 
-            <ul class="border-card">
-                <div class="all-info-card my-not-info">
-                   <span><a href="{% url 'profile-pk' pk=n.sender.pk %}"><img src="{{ n.sender.profile.get_profile_picture_url }}" class="my-not-img" alt="Buyer Image"></a></span>
-                    <li class=""><h3> {{ n.title }} </h3></li>
-                    <li class="seller-name seller-contact">{{ n.content}}</li>
-                    <li class="seller-time-publication seller-contact">{{ n.date }}</li>
-                </div>
-              <form method="post" action="{% url 'return' n.id %}">
+                    <ul class="border-card">
+                        <div class="all-info-card my-not-info">
+                            <span><a href="{% url 'profile-pk' pk=n.sender.pk %}"><img
+                                    src="{{ n.sender.profile.get_profile_picture_url }}" class="my-not-img"
+                                    alt="Buyer Image"></a></span>
+                            <li class=""><h3> {{ n.title }} </h3></li>
+                            <li class="seller-name seller-contact">{{ n.content }}</li>
+                            <li class="seller-time-publication seller-contact">{{ n.date }}</li>
+                        </div>
+                        <form method="post" action="{% url 'return' n.id %}">
             <span>
                 {% csrf_token %}
-                <button class="cancel-btn" type="submit"> Return </button>
+                <button class="cancel-btn dislike-btn" type="submit"> Return </button>
             </span>
-        </form>
-            </ul>
-     {% endfor %}
-         </div>
-    {% endif %}
-       
-<br> <br>
+                        </form>
+                    </ul>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <br> <br>
 
 
-<div class="pagination">
+        <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; First</a>
@@ -52,6 +54,6 @@
             <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
         {% endif %}
     </span>
-</div>
-</main>
+        </div>
+    </main>
 {% endblock %}

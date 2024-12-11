@@ -3,12 +3,12 @@
     <main>
 
         <div class="container-below-navbar">
-            <form action="{% url 'card-delete' pk=card.pk %}" class="form-container" method="post"
+            <form action="{% url 'report_delete' pk=report.pk %}" class="form-container" method="post"
                   enctype="multipart/form-data">
                 {{ form }}
                 <span class="trash"><i class="fa-regular fa-trash-can"></i></span>
                 <h1 class="text ">Do you really want to delete:</h1>
-                <h3 class="text text-h1">{{ card.title }}</h3>
+                <h3 class="text text-h1">{{ report.title }}</h3>
                 <button type="submit" class="submit-button style-btn">Delete</button>
                 {% csrf_token %}
             </form>

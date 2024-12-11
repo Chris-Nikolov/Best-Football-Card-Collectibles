@@ -4,30 +4,31 @@
     <main>
         <div class="empty-space"></div>
         <div class=" announces-tags">
-            <h2><i class="fa-regular fa-envelope"></i> My Notifications</h2>
+            <h2><i class="fa-regular fa-envelope"></i> All Reports</h2>
         </div>
         <br> <br>
 
-        {% if not notifications %}
+        {% if not reports %}
             <!-- If no result/ no items-->
-            <div class="no-result"><h1>No Notifications</h1></div>
+            <div class="no-result"><h1>No Reports</h1></div>
         {% else %}
             <div class="recommend-card space-between" id="recommend-card">
-                {% for n in notifications %}
+                {% for r in reports %}
 
                     <ul class="border-card">
                         <div class="all-info-card my-not-info">
-                            <span><a href="{% url 'profile-pk' pk=n.sender.pk %}"><img
-                                    src="{{ n.sender.profile.get_profile_picture_url }}" class="my-not-img"
-                                    alt="Buyer Image"></a></span>
-                            <li class=""><h3> {{ n.title }} </h3></li>
-                            <li class="seller-name seller-contact">{{ n.content }}</li>
-                            <li class="seller-time-publication seller-contact">{{ n.date }}</li>
+                            <span><a href="{% url 'profile-pk' pk=r.created_by.pk %}"><img
+                                    src="{{ r.created_by.profile.get_profile_picture_url }}" class="my-not-img"
+                                    alt="Reporter Image"></a></span>
+                            <li class=""><h3> {{ r.title }} </h3></li>
+                            <li class="seller-name seller-contact">{{ r.content }}</li>
+                            <li class="seller-time-publication seller-contact">{{ r.date }}</li>
+                            <a href="{% url 'card-details' r.card.pk %}"><li class="seller-time-publication seller-contact">{{ r.card.title }}</li></a>
                         </div>
-                        <form method="post" action="{% url 'archive' n.id %}">
+                        <form method="get" action="{% url 'report_delete' r.id %}">
             <span>
-                {% csrf_token %}
-                <button class="cancel-btn dislike-btn" type="submit"> Cancel</button>
+               
+                <button class="cancel-btn dislike-btn" type="submit"> Delete</button>
             </span>
                         </form>
                     </ul>

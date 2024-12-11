@@ -2,189 +2,88 @@
 {% block main_content %}
 
 
-<main>
-<form action="{% url 'card-details' pk=card.pk %}" method="post" enctype="multipart/form-data">
-    {{ form }}
+    <main>
+        <form action="{% url 'card-details' pk=card.pk %}" method="post" enctype="multipart/form-data">
+            {{ form }}
 
-<div class="product-container">
-
-{% if user.is_superuser %}
-        <span><a href="{% url 'card-delete' pk=card.pk%}"><h4>REMOVE</h4></a></span>
-        <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
-    {% elif user.is_staff or user.is_superuser %}
-        <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
-    {% endif %}
-    <div>
-        <div class="border-product-img">
-            <div class="product-img" >
-                <img src="{{ card.image.url }}" alt="Card Image">
-            </div>
-        </div>
-    </div>
-
-    <div class="product">
-        <div class="container-p-date-fav-edit">
-            <p class="product-date">{{ card.created_at }}</p>
-            <div class="group-btns">
-                <a href="{% url 'add_to_favorites' card.id %}"  class="favorite-btn"><i class="fa-solid fa-heart"></i></a>
-                <!-- If it is my post card-->
-                {% if user == card.owner %}
-                <a href="{% url 'card-edit' pk=card.pk %}" class="edit-card-btn">Edit</a>
-                <a href="{% url 'card-delete' pk=card.pk %}" class="delete edit-card-btn">Delete</a>
-                {% endif %}
-            </div>
-        </div>
-        <h2 class="product-title">{{ card.title }}</h2>
-        {% if card.price and card.is_approved %}
-        <h3 class="product-price">{{ card.price }}$</h3>
-        {% endif %}
-        <div class="tags-card">
-            <a href="{% url 'index' %}" class="status-card">For sale</a>
-            <a href="{% url 'tags_page' brand=card.brand %}" class="status-card">{{ card.brand }}</a>
-        </div>
-        
-        <div class="container-product-seller">
-                <a href="{% url 'profile-pk' pk=card.owner.pk %}" ><img class="img-seller" src="{{ card.owner.profile.get_profile_picture_url }}"></a>
+            <div class="product-container">
                 <div>
-                    <a href="{% url 'profile-pk' pk=card.owner.pk %}"  class="product-seller">{{ card.owner.profile.first_name }} {{ card.owner.profile.last_name }}</a>
-                    <p class="date-reg-seller">Registration: {{ card.owner.profile.created_at }}</p>
-                    <p class="last-activity-seller">Last Activity: {{ card.owner.last_login }}</p>
+                    {% if user.is_superuser %}
+                        <span><a href="{% url 'card-delete' pk=card.pk %}"><h4>REMOVE</h4></a></span>
+                        <span><a href="{% url 'card-disapprove' pk=card.pk %}"><h4>DISAPPROVE</h4></a></span>
+                    {% elif user.is_staff or user.is_superuser %}
+                        <span><a href="{% url 'card-disapprove' pk=card.pk %}"><h4>DISAPPROVE</h4></a></span>
+                    {% endif %}
                 </div>
-        </div>
-        {% csrf_token %}
-    </div>
-</div>
-<div class="product-container-description">
-    <div>
-        <h4 class="desc-title">Description</h4>
-        <p class="product-description">{{ card.description }}</p>
-    </div>
-</div>
-</form>
-<div class="product-container">
-    <a href="{% url 'purchase_card' card.id %}"><button class="product-buy">Buy Now</button></a>
-    <a href="{% url 'negotiate_card' card.id %}"><button class="product-buy">Ask for a Call</button></a>
-</div>
-<div class="product-container">
-<form method="get" action="{% url 'details' %}">
-         <span>
-             <button class="report-btn" type="submit"><i class="fa-regular fa-flag"></i> Report </button>
-         </span>
-    </form>
-</div>
+                <div class="c-info">
+                    <div>
+                        <div class="border-product-img">
+                            <div class="product-img">
+                                <img src="{{ card.image.url }}" alt="Card Image">
+                            </div>
+                        </div>
+                    </div>
 
-<!-- 
-<div class="may-also-like-title">
+                    <div class="product">
+                        <div class="container-p-date-fav-edit">
+                            <p class="product-date">{{ card.created_at }}</p>
+                            <div class="group-btns">
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'add_to_favorites' card.id %}" class="favorite-btn"><i
+                                            class="fa-solid fa-heart"></i></a>
+                                {% endif %}
+                                <!-- If it is my post card-->
+                                {% if user == card.owner %}
+                                    <a href="{% url 'card-edit' pk=card.pk %}" class="edit-card-btn">Edit</a>
+                                    <a href="{% url 'card-delete' pk=card.pk %}" class="delete edit-card-btn">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <h2 class="product-title">{{ card.title }}</h2>
+                        {% if card.price and card.is_approved %}
+                            <h3 class="product-price">{{ card.price }}$</h3>
+                        {% endif %}
+                        <div class="tags-card">
+                            <a href="{% url 'index' %}" class="status-card">For sale</a>
+                            <a href="{% url 'tags_page' brand=card.brand %}" class="status-card">{{ card.brand }}</a>
+                        </div>
 
-    <h3>May Also Like </h3>
-</div>
-<div class="may-also-like-card">
-        <div class="recommend-card" id="recommend-card">
+                        <div class="container-product-seller">
+                            <a href="{% url 'profile-pk' pk=card.owner.pk %}"><img class="img-seller"
+                                                                                   src="{{ card.owner.profile.get_profile_picture_url }}"></a>
+                            <div>
+                                <a href="{% url 'profile-pk' pk=card.owner.pk %}"
+                                   class="product-seller">{{ card.owner.profile.first_name }} {{ card.owner.profile.last_name }}</a>
+                                <p class="date-reg-seller">Registration: {{ card.owner.profile.created_at }}</p>
+                                <p class="last-activity-seller">Last Activity: {{ card.owner.last_login }}</p>
+                            </div>
+                        </div>
+                        {% csrf_token %}
+                        <br>
+                        <div class="product-container-description">
+                            <h4 class="desc-title">Description</h4>
+                            <p class="product-description">{{ card.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        {% if user.is_authenticated %}
+            <div class="">
+                <a href="{% url 'purchase_card' card.id %}">
+                    <button class="product-buy">Buy Now</button>
+                </a>
+                <a href="{% url 'negotiate_card' card.id %}">
+                    <button class="product-buy">Ask for a Call</button>
+                </a>
+                <span>
+                <a href="{% url 'create-report' card.id %}" class="report-btn">
+                <i class="fa-regular fa-flag"></i> Report
+                </a>
+            </span>
+            </div>
 
-             If no result/ no items
-            <div class="no-result"><h1>No Result</h1></div> 
-             
-             <a class="link-card" href="#">
-                <ul class="border-card">
-                    <div class="all-info-card">
-                        <img src="https://cdn.pixabay.com/photo/2023/12/08/23/46/cat-8438334_640.jpg" class="image-card" alt="Card Image">
-                        <div class="group-price-status">
-                            <li class="price-card">$767,98</li>
-                            <li class="status-card">For Sale</li>
-                        </div>
-                        <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                        <ul class="seller-info">
-                                <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                                <div class="seller-contact">
-                                    <li class="seller-name">Liliq</li>
-                                    <li class="seller-time-publication">20.11 14:55</li>
-                                </div>
-                        </ul>
-                    </div>
-                </ul>
-            </a>
-    
-            <a class="link-card" href="#">
-                <ul class="border-card">
-                    <div class="all-info-card">
-                        <img src="https://cdn.pixabay.com/photo/2017/03/13/10/31/monkey-2139295_640.jpg" class="image-card" alt="Card Image">
-                        <div class="group-price-status">
-                            <li class="price-card">$767,98</li>
-                            <li class="status-card">For sale</li>
-                        </div>
-                        <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                        <ul class="seller-info">
-                                <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                                <div class="seller-contact">
-                                    <li class="seller-name">Liliq</li>
-                                    <li class="seller-time-publication">20.11 14:55</li>
-                                </div>
-                        </ul>
-                    </div>
-                </ul>
-            </a>
-    
-            <a class="link-card" href="#">
-                <ul class="border-card">
-                    <div class="all-info-card">
-                        <img src="https://cdn.pixabay.com/photo/2020/07/21/01/33/cute-5424776_640.jpg" class="image-card" alt="Card Image">
-                        <div class="group-price-status">
-                            <li class="price-card">$767,98</li>
-                            <li class="status-card">For sale</li>
-                        </div>
-                        <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                        <ul class="seller-info">
-                                <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                                <div class="seller-contact">
-                                    <li class="seller-name">Liliq</li>
-                                    <li class="seller-time-publication">20.11 14:55</li>
-                                </div>
-                        </ul>
-                    </div>
-                </ul>
-            </a>
-    
-            <a class="link-card" href="#">
-                <ul class="border-card">
-                    <div class="all-info-card">
-                        <img src="https://cdn.pixabay.com/photo/2023/12/08/23/46/cat-8438334_640.jpg" class="image-card" alt="Card Image">
-                        <div class="group-price-status">
-                            <li class="price-card">$767,98</li>
-                            <li class="status-card">For Sale</li>
-                        </div>
-                        <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                        <ul class="seller-info">
-                                <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                                <div class="seller-contact">
-                                    <li class="seller-name">Liliq</li>
-                                    <li class="seller-time-publication">20.11 14:55</li>
-                                </div>
-                        </ul>
-                    </div>
-                </ul>
-            </a>
+        {% endif %}
 
-            <a class="link-card" href="#">
-                <ul class="border-card">
-                    <div class="all-info-card">
-                        <img src="https://cdn.pixabay.com/photo/2023/08/11/12/41/capuchin-8183528_640.jpg" class="image-card" alt="Card Image">
-                        <div class="group-price-status">
-                            <li class="price-card">$767,98</li>
-                            <li class="status-card">For sale</li>
-                        </div>
-                        <li class="title-card">Haaland Black edition 2024/2025 season</li>
-                        <ul class="seller-info">
-                                <img src="https://cdn.pixabay.com/photo/2023/10/19/21/08/ai-generated-8327632_640.jpg" class="seller-image" alt="Seller Image">
-                                <div class="seller-contact">
-                                    <li class="seller-name">Liliq</li>
-                                    <li class="seller-time-publication">20.11 14:55</li>
-                                </div>
-                        </ul>
-                    </div>
-                </ul>
-            </a>
-           
-    </div>
-</div> -->
-</main>
+    </main>
 {% endblock %}

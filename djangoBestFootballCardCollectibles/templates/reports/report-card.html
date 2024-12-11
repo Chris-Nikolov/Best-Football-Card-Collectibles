@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block main_content %}
+    <main>
+
+        <div class="container-below-navbar">
+            <form action="{% url 'create-report' card.id %}"  class="form-container form-cont-style th-ch-img"
+                  method="post">
+                <h1 class="login-title">Report Card</h1>
+                {{ form }}
+                <button type="submit" class="submit-button style-btn">Report</button>
+                {% csrf_token %}
+            </form>
+        </div>
+    </main>
+{% endblock %}

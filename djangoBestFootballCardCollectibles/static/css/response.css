@@ -3,70 +3,80 @@ main,
 #search-bar,
 .footer-all-content,
 .product-container,
-.product-container-description,
 .may-also-like-title,
 .name-section-container,
-.response-container{
+.response-container {
     max-width: 2440px;
     padding: 15px 30px;
 }
 
 /* Profile Delete Page*/
 /* Profile edit*/
-.size-cont{
+.size-cont {
     margin: auto;
     max-width: 1000px;
 }
 
 /*For Product detail page*/
-@media (max-width: 790px){
-    .product-container{
+@media (max-width: 790px) {
+    .product-container {
         flex-direction: column;
     }
 }
 
 /* For profile page */
 
-@media (max-width: 450px){
-    .bg-small{
-        align-items: flex-start !important;}
+@media (max-width: 450px) {
+    .bg-small {
+        align-items: flex-start !important;
+    }
 }
 
 /* For Navigation */
-@media (max-width: 685px){
-    .couple-search-top{
+@media (max-width: 685px) {
+    .couple-search-top {
         width: auto;
-        max-width: 150px;}
+        max-width: 150px;
+    }
 }
-@media (max-width: 585px){
-    #home{
-        display: none;}
-    .couple-search{
-        padding: 0px !important;}
+
+@media (max-width: 585px) {
+    #home {
+        display: none;
+    }
+
+    .couple-search {
+        padding: 0px !important;
+    }
 }
-@media  (max-width: 842px){
-    .container{
+
+@media (max-width: 842px) {
+    .container {
         flex-direction: column;
         gap: 5px;
     }
-    .n-c-first{
+
+    .n-c-first {
         justify-content: space-between;
         text-align: start;
     }
 }
 
 
-
 /* For Edit Profile */
-@media (max-width: 530px){
+@media (max-width: 530px) {
     .gr-form-acc {
-        max-width: 250px;}
+        max-width: 250px;
+    }
+
     .avatar-area {
-        flex-direction: column;}
+        flex-direction: column;
+    }
 
     .edit-window {
         padding: 0px !important;
     }
+
     .bg-w-profile {
         margin: 200px 0 !important;
         box-shadow: none !important;

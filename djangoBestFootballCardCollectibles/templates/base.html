@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href=>
     <link rel="stylesheet" href="/static/css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFCC</title>
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
           integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <meta name="description"
+          content="Best Football Card Collectibles Check the best football cards! Your next favorite collectibles are waiting!">
+    <meta name="keywords" content="Card, Football, Collectibles, Best Card, Collection">
+    <meta name="author" content="Chris Nikolov">
+    <link rel="icon" type="image/png" href="https://cdn.pixabay.com/photo/2012/04/05/01/46/soccer-25762_960_720.png">
 </head>
 <body>
 {% if messages %}
@@ -30,7 +33,6 @@
                     <input class="search-box" type="text" name="query" placeholder="Search card...">
                     <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-
             </div>
 
             <nav id="navbar" class="navbar-container nav-link">
@@ -41,7 +43,7 @@
                     <!-- If you HAVE profile  -->
                     <form action="{% url 'logout' %}" method="post" class="navbar-item nav-link" id="logout-form">
                         {% csrf_token %}
-                        <button type="submit" class="custom-button">Logout</button>
+                        <button type="submit" class="custom-button navbar-item nav-link logout-btn">Logout</button>
                     </form>
                     <a href="{% url 'my_archive' %}" class="navbar-item nav-link" id="my-favorite-card" title="Archive"><i
                             class="fa-solid fa-book"></i></a>
@@ -59,8 +61,9 @@
                                 });
                         });
                     </script>
-                    
-                    <a href="{% url 'my-favorites' %}" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Cards"><i class="fa-solid fa-heart"></i></a>
+
+                    <a href="{% url 'my-favorites' %}" class="navbar-item nav-link" id="my-favorite-card"
+                       title="Favorite Cards"><i class="fa-solid fa-heart"></i></a>
                     <a href="{% url 'my_notifications' %}" class="navbar-item nav-link" id="message"
                        title="Notifications">
                         <i class="fa-solid fa-envelope">
@@ -73,7 +76,10 @@
                                                                                                class="fa-solid fa-arrow-up-from-bracket"></i>
                         Upload</a>
                 {% endif %}
-                {% if user.is_staff or user.is_superuser %}
+                {% if user.is_superuser %}
+                    <a href="{% url 'staff_page' %}"><h3>Staff page</h3></a>
+                    <a href="{% url 'report-page' %}"><h3>Report page</h3></a>
+                {% elif user.is_staff %}
                     <a href="{% url 'staff_page' %}"><h3>Staff page</h3></a>
                 {% endif %}
             </nav>
@@ -91,7 +97,6 @@
             <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt
                 alias!</p>
             <aside class="social-media">
-                <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
                 <a href="#"><i title="GitHub" class="fa-brands fa-github"></i></a>
                 <a href="#"><i title="Discord" class="fa-brands fa-discord"></i></a>
                 <a href="#"><i title="YouTube" class="fa-brands fa-youtube"></i></a>

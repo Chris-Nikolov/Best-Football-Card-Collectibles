@@ -1,19 +1,20 @@
-.empty-space1{
-    padding-top:50px;
+.empty-space1 {
+    padding-top: 50px;
 }
 
-.con-res{
+.con-res {
     margin: auto;
     max-width: 1440px;
 }
 
-.only-profile-info{
+.only-profile-info {
     position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
 }
-.bg-w-profile{
+
+.bg-w-profile {
     border-radius: 10px;
     margin: 50px 30px;
     min-width: 300px;
@@ -21,7 +22,7 @@
     overflow: auto;
 }
 
-.my-profile-account{
+.my-profile-account {
     align-self: flex-start;
     position: absolute;
     top: 100px;
@@ -29,17 +30,19 @@
     background-color: transparent;
     margin-right: 20px;
 }
-.my-profile-account *{
+
+.my-profile-account * {
     margin-bottom: 10px;
 }
-.my-profile-account img{
+
+.my-profile-account img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     outline: #EFF0F1 5px solid;
 }
 
-.bg-small{
+.bg-small {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -49,58 +52,61 @@
     background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
     background-size: 300% 300%;
     animation: color 90s ease-in-out infinite;
-    @keyframes color{
-        0%{
+    @keyframes color {
+        0% {
             background-position: 0 50%;
         }
-        50%{
+        50% {
             background-position: 100% 50%;
         }
-        100%{
+        100% {
             background-position: 0 50%;
         }
     }
 }
 
 
-
-.bg-large{
+.bg-large {
     width: 100%;
     height: 300px;
     max-height: 400px;
 }
 
-.for-profile-btn{
-    border-radius: 10px;    
+.for-profile-btn {
+    border-radius: 10px;
     margin: 0px 5px;
     font-size: 0.7em;
     color: black;
-    
+
     padding: 7px 12px;
     cursor: pointer;
     display: inline-block;
-    position: relative; 
+    position: relative;
     pointer-events: auto;
 }
 
-.for-profile-btn:hover{
+.for-profile-btn:hover {
     background-color: rgba(235, 230, 230, 0.3);
 }
-.btns a:first-of-type{
+
+.btns a:first-of-type {
     outline: 1px solid #44444C;
 }
 
-.btns a:last-of-type{
+.btns a:last-of-type {
     outline: none;
 }
-.full-name{
+
+.full-name {
     font-size: 1.7em;
     color: #44444C;
     letter-spacing: 1px;
 }
-.username{
+
+.username {
     color: #6d6b6b;
 }
+
 .descr-profile {
     color: #0B0909;
     line-height: 1.5em;
@@ -108,30 +114,30 @@
 }
 
 
-
 /* POST / My card */
-.only-card-window{
+.only-card-window {
     padding-bottom: 50px;
 }
 
-.my-collection-title{
+.my-collection-title {
     color: #44444C;
     letter-spacing: 1px;
 }
 
 
-.card-area{
+.card-area {
     padding: 10px 30px;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    
+
 }
-.card-area a{
+
+.card-area a {
     display: inline-block;
 }
 
-.container-card{
+.container-card {
     width: 250px;
     position: relative;
     border-radius: 10px;
@@ -139,7 +145,7 @@
     overflow: hidden;
 }
 
-.my-card-img{
+.my-card-img {
     width: 100%;
     height: 350px;
     object-fit: cover;
@@ -148,7 +154,7 @@
     transition: transform 0.5s;
 }
 
-.overlay{
+.overlay {
     color: white;
     height: 0;
     width: 100%;
@@ -162,34 +168,35 @@
     /*clip-path: ellipse(40% 54% at 20% 80%);*/
     /*background: linear-gradient(transparent, rgba(0, 0, 0, 1) 60%);*/
     transition: height 0.5s, clip-path 0.5s;
-    overflow: hidden;  
+    overflow: hidden;
     background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
     background-size: 300% 300%;
     animation: color 90s ease-in-out infinite;
 
-    @keyframes color{
-        0%{
+    @keyframes color {
+        0% {
             background-position: 0 50%;
         }
-        50%{
+        50% {
             background-position: 100% 50%;
         }
-        100%{
+        100% {
             background-position: 0 50%;
         }
     }
 
 }
 
-.my-card-img:hover{
+.my-card-img:hover {
     transform: scale(1.2);
 }
 
-.container-card:hover .overlay{
-    height: 50%; /* Увеличете височината на overlay при hover */ 
+.container-card:hover .overlay {
+    height: 50%; /* Увеличете височината на overlay при hover */
     clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
 }
-.overlay p{
+
+.overlay p {
     margin-top: 35%;
     margin-bottom: 5px;
     font-size: 1em;
@@ -201,7 +208,7 @@
 }
 
 .fa-pen-to-square,
-.fa-right-from-bracket{
+.fa-right-from-bracket {
     color: rgba(13, 10, 10, 0.7);
     font-size: 0.9em;
 }

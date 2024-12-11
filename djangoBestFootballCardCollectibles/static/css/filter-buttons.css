@@ -1,6 +1,6 @@
 /*Buttons*/
 
-select{
+select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -9,12 +9,12 @@ select{
 }
 
 .generic-tags,
-.specific-tags{
+.specific-tags {
     background-color: #EFF0F1;
     margin: auto;
 }
 
-.specific-tags{
+.specific-tags {
     display: flex;
     gap: 10px;
     justify-content: space-between;
@@ -23,7 +23,7 @@ select{
 }
 
 
-.genre a{
+.genre a {
     background-color: rgb(235, 236, 240);
     border-radius: 20px;
     padding: 7px 12px;
@@ -31,12 +31,11 @@ select{
     color: rgb(25, 27, 38);
 }
 
-.genre a:hover{
-    background-color:rgb(219, 220, 226);
-    ;
+.genre a:hover {
+    background-color: rgb(219, 220, 226);;
 }
 
-.subcategories a, .sort{
+.subcategories a, .sort {
     border-radius: 7px;
     border: solid 1px rgb(181, 179, 179);
     padding: 5px 10px;
@@ -44,24 +43,26 @@ select{
     color: rgb(25, 27, 38);
 
 }
-.subcategories a:hover, .sort:hover{
+
+.subcategories a:hover, .sort:hover {
     border: solid 1px rgb(61, 59, 59);
 }
 
-.genre{
+.genre {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     margin: 20px 0;
 }
-.subcategories{
+
+.subcategories {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.sort{
+.sort {
     border-radius: 20px;
     align-self: flex-start;
 }

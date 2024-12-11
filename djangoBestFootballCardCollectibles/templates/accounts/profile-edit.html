@@ -1,35 +1,35 @@
 {% extends 'base.html' %}
 {% block main_content %}
-<main> 
-<div class="size-cont"> 
-<div>
-    <div class="empty-space1 noselect"></div>
-    <div class="bg-w-profile edit-window"> 
-        <h3> <i class="fa-solid fa-circle-user"></i> Account Settings</h3>
-        <form action="{% url 'edit' %}" method="post" enctype="multipart/form-data" class="th-ch-img">
-            <div class="all-form-area">
-                <div class="avatar-area">
-                    <div class="avatar file-upload-img">
-                        <img src="{{ user.profile.get_profile_picture_url }}">
-                    </div>
+    <main>
+        <div class="size-cont">
+            <div>
+                <div class="empty-space1 noselect"></div>
+                <div class="bg-w-profile edit-window">
+                    <h3><i class="fa-solid fa-circle-user"></i> Account Settings</h3>
+                    <form action="{% url 'edit' %}" method="post" enctype="multipart/form-data" class="th-ch-img">
+                        <div class="all-form-area">
+                            <div class="avatar-area">
+                                <div class="avatar file-upload-img">
+                                    <img src="{{ user.profile.get_profile_picture_url }}">
+                                </div>
 
-                </div>
-                {{ form.as_p }}
-                <div class="finish-buttons">
-                    <button type="submit" class="update-btn">Update</button>
-                    {% csrf_token %}
-                </div>
-            </div>
-        </form>
-        
-        <form method="get" action="{% url 'details' %}">
+                            </div>
+                            {{ form.as_p }}
+                            <div class="finish-buttons">
+                                <button type="submit" class="update-btn">Update</button>
+                                {% csrf_token %}
+                            </div>
+                        </div>
+                    </form>
+
+                    <form method="get" action="{% url 'details' %}">
             <span>
                 <button class="cancel-btn" type="submit"> Cancel</button>
             </span>
-        </form>
-        <!--<button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button> -->
-        <a href="{% url 'delete-profile' %}" class="del-a">Delete Account</a>
-    </div>
-</div>
-</main>
+                    </form>
+                    <!--<button class="cancel-btn"><a href="{% url 'details' %}">Cancel</a></button> -->
+                    <a href="{% url 'delete-profile' %}" class="del-a">Delete Account</a>
+                </div>
+            </div>
+    </main>
 {% endblock %}

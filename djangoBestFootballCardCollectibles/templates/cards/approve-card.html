@@ -1,22 +1,23 @@
 {% extends 'base.html' %}
 {% block main_content %}
-<main>
+    <main>
 
-    <div class="container-below-navbar">
-        <form action="{% url 'card-approve' pk=card.pk %}" class="form-container" method="post" enctype="multipart/form-data">
-            {{ form }}
-            <h1 class="text ">Do you really want to approve:</h1>
-            <h3 class="text text-h1">{{ card.title }}</h3>
-            <button type="submit" class="submit-button style-btn">Approve</button>
-            {% csrf_token %}
-        {% if user.is_superuser %}
-            <span><a href="{% url 'card-delete' pk=card.pk%}"><h4>REMOVE</h4></a></span>
-            <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
-        {% elif user.is_staff %}
-            <span><a href="{% url 'card-disapprove' pk=card.pk%}"><h4>DISAPPROVE</h4></a></span>
-        {% endif %}
-        </form>
-        
-    </div>
-</main>
+        <div class="container-below-navbar">
+            <form action="{% url 'card-approve' pk=card.pk %}" class="form-container" method="post"
+                  enctype="multipart/form-data">
+                {{ form }}
+                <h1 class="text ">Do you really want to approve:</h1>
+                <h3 class="text text-h1">{{ card.title }}</h3>
+                <button type="submit" class="submit-button style-btn">Approve</button>
+                {% csrf_token %}
+                {% if user.is_superuser %}
+                    <span><a href="{% url 'card-delete' pk=card.pk %}"><h4>REMOVE</h4></a></span>
+                    <span><a href="{% url 'card-disapprove' pk=card.pk %}"><h4>DISAPPROVE</h4></a></span>
+                {% elif user.is_staff %}
+                    <span><a href="{% url 'card-disapprove' pk=card.pk %}"><h4>DISAPPROVE</h4></a></span>
+                {% endif %}
+            </form>
+
+        </div>
+    </main>
 {% endblock %}

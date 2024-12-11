@@ -1,26 +1,29 @@
-.edit-window{
+.edit-window {
     padding: 20px 40px;
-    margin: 200px  auto;
+    margin: 200px auto;
     letter-spacing: 1px;
-    
+
 }
-.all-form-area{
+
+.all-form-area {
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.all-form-area p a{
+
+.all-form-area p a {
     color: #454647;
 }
-.all-form-area p{
+
+.all-form-area p {
     display: flex;
     flex-direction: column;
     max-width: 500px;
     min-width: 300px;
 }
 
-.avatar-area{
+.avatar-area {
     display: flex;
     margin-top: 20px;
     gap: 30px;
@@ -28,19 +31,21 @@
     align-items: center;
 }
 
-.account-info{
+.account-info {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     margin-top: 20px;
 
 }
-.cont-av-btn{
+
+.cont-av-btn {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.avatar-buttons{
+
+.avatar-buttons {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -49,7 +54,7 @@
 }
 
 /* Change Avatar */
-.file-upload-img img{
+.file-upload-img img {
     position: relative;
     width: 130px;
     height: 130px;
@@ -59,15 +64,17 @@
     align-items: center;
     object-fit: cover;
 }
-.file-image{
+
+.file-image {
     display: none;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
 }
-label{
+
+label {
     font-size: 0.9em;
     margin-bottom: 5px;
     border-radius: 10px;
@@ -76,13 +83,14 @@ label{
     color: rgba(0, 0, 0, 0.6);
 
 }
+
 input,
 textarea,
 .textarea-box,
 .avatar-delete-btn,
 .avatar-change-btn,
 .cancel-btn,
-.update-btn{
+.update-btn {
     padding: 10px 20px;
     border-radius: 10px;
     outline: none;
@@ -91,24 +99,26 @@ textarea,
     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
     letter-spacing: 1px;
 }
+
 .avatar-delete-btn,
 .avatar-change-btn,
 .cancel-btn,
-.update-btn{
+.update-btn {
     outline: 1px solid #00A0F3;
     background: transparent;
     color: #00A0F3;
     font-weight: 500;
-    text-align:justify;
+    text-align: justify;
     cursor: pointer;
 }
-.update-btn{
+
+.update-btn {
     background-color: #00A0F3;
     color: white;
 }
 
 .avatar-delete-btn,
-.avatar-change-btn{
+.avatar-change-btn {
     display: flex;
     white-space: nowrap;
     align-items: center;
@@ -117,60 +127,63 @@ textarea,
 }
 
 .cancel-btn,
-.update-btn{
+.update-btn {
     padding: 10px 45px;
     transition: background-color 0.2s, transform 0.2s;
 }
 
 .collum-1,
 .collum-2,
-.collum-3{
+.collum-3 {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.finish-buttons{
+.finish-buttons {
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-.cancel-btn{
-    margin-right: 20px;
+.cancel-btn {
     margin-bottom: 20px;
 }
+
 .cancel-btn a,
-.del-a{
+.del-a {
     color: #00A0F3;
 
 }
+
 .cancel-btn:hover,
 .avatar-delete-btn:hover,
-.avatar-change-btn:hover{
+.avatar-change-btn:hover {
     background-color: rgba(172, 212, 227, 0.2);
     color: rgb(37, 131, 238);
 }
-.update-btn:hover{
+
+.update-btn:hover {
     background-color: white;
     color: #00A0F3;
 }
+
 .update-btn:active,
-.cancel-btn:active{
+.cancel-btn:active {
     background-color: rgba(37, 131, 238, 0.7);
 }
 
 .fa-trash-can,
-.fa-image{
-    color:#00A0F3;
+.fa-image {
+    color: #00A0F3;
     font-size: 0.9em;
 }
 
-.delete-account{
+.delete-account {
     background: transparent;
     outline: 1px solid rgba(128, 128, 128, 0.4);
 }
 
-.for-edit-profile{
+.for-edit-profile {
     padding: 0px;
     display: inline-block;
     font-size: 1em;

@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block main_content %}
-<main>
-    <div class="empty-space1 noselect"></div>
-<div class="size-cont">
-    <div class="bg-w-profile edit-window"> 
-        <h3> <i class="fa-solid fa-circle-user"></i> Account Deletion</h3>
-        <br> <br>
-        <h4>Do you really want to delete your profile?</h4>
-        <form action="{% url 'delete-profile' %}" method="post">
-                {{ form }}
-                <div class="finish-buttons">
-                    <button type="submit" class="update-btn">Delete</button>
-                    {% csrf_token %}
-                </div>
-        </form>
-        <form method="get" action="{% url 'details' %}">
+    <main>
+        <div class="empty-space1 noselect"></div>
+        <div class="size-cont">
+            <div class="bg-w-profile edit-window">
+                <h3><i class="fa-solid fa-circle-user"></i> Account Deletion</h3>
+                <br> <br>
+                <h4>Do you really want to delete your profile?</h4>
+                <form action="{% url 'delete-profile' %}" method="post">
+                    {{ form }}
+                    <div class="finish-buttons">
+                        <button type="submit" class="update-btn">Delete</button>
+                        {% csrf_token %}
+                    </div>
+                </form>
+                <form method="get" action="{% url 'details' %}">
             <span>
                 <button class="cancel-btn" type="submit"> Cancel</button>
             </span>
-        </form>
-    </div>
-    </div>
-</main>
+                </form>
+            </div>
+        </div>
+    </main>
 {% endblock %}

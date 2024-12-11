@@ -1,11 +1,11 @@
-.container-below-navbar{
+.container-below-navbar {
     margin: auto;
     padding-top: 100px;
     display: flex;
     justify-content: center;
 }
 
-.form-container{
+.form-container {
     width: 500px;
     min-width: 300px;
     min-height: 500px;
@@ -14,29 +14,30 @@
     display: flex;
     flex-direction: column;
     background: rgba(0, 5, 9, 0.2);
-    -webkit-backdrop-filter: blur(5px);   
+    -webkit-backdrop-filter: blur(5px);
     justify-content: center;
     border-radius: 10px;
     margin-bottom: 100px;
     padding: 40px;
     gap: 20px;
-    box-shadow: 1px 1px 40px rgba(5, 7, 8, 0.3);    
+    box-shadow: 1px 1px 40px rgba(5, 7, 8, 0.3);
 }
 
-.form-container{
+.form-container {
     background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
     background-size: 300% 300%;
     animation: color 90s ease-in-out infinite;
 }
-@keyframes color{
-    0%{
+
+@keyframes color {
+    0% {
         background-position: 0 50%;
     }
-    50%{
+    50% {
         background-position: 100% 50%;
 
     }
-    100%{
+    100% {
         background-position: 0 50%;
 
     }
@@ -44,46 +45,48 @@
 
 
 .reg-title,
-.login-title{
+.login-title {
     margin-bottom: 20px;
 }
 
-.form-container h1{
+.form-container h1 {
     margin-bottom: 50px;
     text-align: center;
     color: white;
     letter-spacing: 2px;
     text-shadow: 1px 1px 20px rgba(46, 51, 55, 0.4);
 }
-.form-cont-style div{
+
+.form-cont-style div {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.form-group{
+.form-group {
     width: 100%;
     border-radius: 10px;
     color: white;
     /*box-shadow: 2px 2px 30px rgba(5, 7, 8, 0.5);*/
     display: flex;
     flex-direction: column;
-    
+
     gap: 5px;
 }
-.form-group{
+
+.form-group {
     text-align: start;
 }
 
 .form-input,
-.submit-button{
+.submit-button {
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 0.9em;
     border: none;
 }
 
-.submit-button{
+.submit-button {
     margin: 30px 0px;
     cursor: pointer;
     transition: ease 0.3s;
@@ -92,15 +95,17 @@
     border: white solid 1px;
 
 }
-.submit-button:hover{
+
+.submit-button:hover {
     background: white;
     color: black;
 }
-.submit-button:active{
+
+.submit-button:active {
     opacity: 0.7;
 }
 
-a{
+a {
     color: white;
     transition: ease 0.2s;
 }
@@ -109,38 +114,42 @@ a{
 .login,
 .forget,
 .register,
-.signin{
+.signin {
     color: rgb(37, 34, 34);
 
 }
-.login a:hover, 
-.forget a:hover, 
+
+.login a:hover,
+.forget a:hover,
 .register a:hover,
-.signin a:hover{
+.signin a:hover {
     opacity: 0.6;
 }
 
 /*Upload Card Page */
-.uplC-form-insert-btn{
+.uplC-form-insert-btn {
     padding-left: 0px;
     padding-right: 0px;
 }
-textarea{
+
+textarea {
     resize: none;
 }
 
 /* Delete item/page */
-.trash{
+.trash {
     text-align: center;
     margin-bottom: 20px;
 
 }
-.trash i{
+
+.trash i {
     font-size: 7em;
     font-weight: 200;
     color: rgba(255, 255, 255, 0.7);
 }
-.text{
+
+.text {
     font-size: 1.1em;
     text-align: center;
     margin: 0 auto !important;
@@ -148,17 +157,19 @@ textarea{
     color: rgba(255, 255, 255, 0.9);
     letter-spacing: 1px;
 }
-.text-h1{
+
+.text-h1 {
     font-size: 1.6em;
 
 }
 
-.style-btn{
-    margin-top:60px;
+.style-btn {
+    margin-top: 60px;
     font-weight: 600;
     letter-spacing: 1px;
 }
-.small-cont{
+
+.small-cont {
     min-height: auto;
 }
 
@@ -166,13 +177,13 @@ textarea{
 
 .th-ch-img p:nth-child(4),
 .th-ch-img div:nth-child(4),
-.seven-ch-img div:nth-child(7){
+.seven-ch-img div:nth-child(7) {
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.th-ch-img p:nth-child(4){
-       overflow: hidden;
+.th-ch-img p:nth-child(4) {
+    overflow: hidden;
 }
 
 

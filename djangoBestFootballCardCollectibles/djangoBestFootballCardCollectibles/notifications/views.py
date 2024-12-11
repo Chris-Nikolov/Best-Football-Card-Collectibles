@@ -12,7 +12,7 @@ from .forms import NotificationForm
 # Create your views here.
 
 
-class PurchaseView(View):
+class PurchaseView(LoginRequiredMixin, View):
     def get(self, request, card_id):
         form = NotificationForm()
         card = Card.objects.get(id=card_id)
@@ -75,7 +75,7 @@ class PurchaseView(View):
             return render(request, 'notifications/purchase-card.html', {'form': form, 'card': card})
 
 
-class NegotiationView(View):
+class NegotiationView(LoginRequiredMixin, View):
     def get(self, request, card_id):
         form = NotificationForm()
         card = Card.objects.get(id=card_id)

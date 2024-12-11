@@ -2,12 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="" >
+    <link rel="icon" type="image/png" href="">
     <link rel="stylesheet" href="../CSS/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project2 My card site</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <header>
     <div class="all-navigation">
@@ -18,156 +20,156 @@
                 <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <nav id="navbar" class="navbar-conteiner nav-link">
-            <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
+                <a href="#" class="navbar-item nav-link" id="home" title="Home"><i class="fa-solid fa-house"></i></a>
 
-            <!-- If you havent profile -->
-            <a href="#" class="navbar-item nav-link" id="login">Login</a>
+                <!-- If you havent profile -->
+                <a href="#" class="navbar-item nav-link" id="login">Login</a>
 
-            <!-- If you HAVE profile  -->
-            <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i class="fa-solid fa-heart"></i></a>
-            <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope"> <span class="message-icon-notification">3</span> </i></a>
+                <!-- If you HAVE profile  -->
+                <a href="#" class="navbar-item nav-link" id="my-favorite-card" title="Favorite Card"><i
+                        class="fa-solid fa-heart"></i></a>
+                <a href="#" class="navbar-item nav-link" id="message" title="Message"><i class="fa-solid fa-envelope">
+                    <span class="message-icon-notification">3</span> </i></a>
 
-            <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile"><!--<i class="fa-solid fa-circle-user"></i>--> <img class="navbar-profile-picture" src="https://cdn.pixabay.com/photo/2016/11/23/01/11/animal-1851634_640.jpg"> </a>
-            <a href="#" class="navbar-item nav-link" id="upload"><i title="Upload" class="fa-solid fa-arrow-up-from-bracket"></i> Upload</a>    
+                <a href="#" class="navbar-item nav-link" id="my-profile" title="Profile">
+                    <!--<i class="fa-solid fa-circle-user"></i>--> <img class="navbar-profile-picture"
+                                                                        src="https://cdn.pixabay.com/photo/2016/11/23/01/11/animal-1851634_640.jpg">
+                </a>
+                <a href="#" class="navbar-item nav-link" id="upload"><i title="Upload"
+                                                                        class="fa-solid fa-arrow-up-from-bracket"></i>
+                    Upload</a>
             </nav>
         </div>
     </div>
 </header>
-<body>  
-    <div class="empty-space1 noselect"></div>
-    
-    <!-- If no favorite card-->
-    <div class="recommend-card" id="recommend-card">
-        
-        <div class="no-result"><h1>No Result</h1></div>
-    </div>
+<body>
+<div class="empty-space1 noselect"></div>
+
+<!-- If no favorite card-->
+<div class="recommend-card" id="recommend-card">
+
+    <div class="no-result"><h1>No Result</h1></div>
+</div>
 
 
-
-        
-            
-                <div class="name-section-container">
-                    <h3><i class="fa-solid fa-heart"></i> My Favorites Cards</h3>
-                    <select class="sort" name="sorting" id="sort">
-                        <option value="Newest" selected >Newest</option>
-                        <option value="Oldest">Oldest</option>
-                        <option value="Cheapest">Cheapest</option>
-                        <option value="Most exspensive">Most exspensive</option>
-                        <option value="By default">By default<option>
-                    </select>
-                </div>
-                <div class="card-area">
-                    
-                
-                    
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2023/12/08/23/46/cat-8438334_640.jpg" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2024/03/15/19/53/super-hero-8635699_640.jpg" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2019/08/01/21/40/spiderman-4378357_640.png" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet.. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae tenetur natus maxime consequuntur animi, minus dolor eos. Dolore, commodi eum! </p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2024/03/15/19/53/super-hero-8635699_640.jpg" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
-                    <a href="#">
-                        <div class="container-card">
-                            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2024/03/15/19/53/super-hero-8635699_640.jpg" alt="Card Image">
-                            <div class="overlay">
-                                <p class="">Lorem ipsum dolor sit amet..</p>
-                            </div>    
-                        </div>
-                    </a>
+<div class="name-section-container">
+    <h3><i class="fa-solid fa-heart"></i> My Favorites Cards</h3>
+    <select class="sort" name="sorting" id="sort">
+        <option value="Newest" selected>Newest</option>
+        <option value="Oldest">Oldest</option>
+        <option value="Cheapest">Cheapest</option>
+        <option value="Most exspensive">Most exspensive</option>
+        <option value="By default">By default
+        <option>
+    </select>
+</div>
+<div class="card-area">
 
 
-                    
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2023/12/08/23/46/cat-8438334_640.jpg"
+                 alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img"
+                 src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2024/03/15/19/53/super-hero-8635699_640.jpg"
+                 alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2019/08/01/21/40/spiderman-4378357_640.png"
+                 alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet.. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Repudiandae tenetur natus maxime consequuntur animi, minus dolor eos. Dolore, commodi eum! </p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img"
+                 src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img"
+                 src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2024/03/15/19/53/super-hero-8635699_640.jpg"
+                 alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img"
+                 src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img"
+                 src="https://cdn.pixabay.com/photo/2021/04/20/03/40/captain-america-6192855_640.png" alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
+    <a href="#">
+        <div class="container-card">
+            <img class="my-card-img" src="https://cdn.pixabay.com/photo/2024/03/15/19/53/super-hero-8635699_640.jpg"
+                 alt="Card Image">
+            <div class="overlay">
+                <p class="">Lorem ipsum dolor sit amet..</p>
+            </div>
+        </div>
+    </a>
 
 
-
-                </div>
-
-            
-        
+</div>
 
 
-
-
-    
-         
-        
-        
-                 
-
-    
 </body>
 <footer>
     <div class="footer-all-content">
         <div class="f-logo-social">
             <a class="footer-logo" href="#" title="Best Football Card Collectibles">Best Football Card Collectibles</a>
-            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt alias!</p>
+            <p>Nesciunt inventore, officiis assumenda nulla sapiente fugiat! Soluta architecto pariatur incidunt
+                alias!</p>
             <aside class="social-media">
                 <a href="#"><i title="Facebook" class="fa-brands fa-square-facebook"></i></a>
                 <a href="#"><i title="GitHub" class="fa-brands fa-github"></i></a>
@@ -193,7 +195,7 @@
             </div>
         </div>
     </div>
-    
+
 </footer>
 <p class="copyright">&copy; 2024</p>
 

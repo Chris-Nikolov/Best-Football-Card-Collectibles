@@ -1,43 +1,44 @@
 {% extends 'base.html' %}
-{% block  main_content%}
-<main>
-    <div class="empty-space1 noselect"></div>
-    <div class="con-res">
-        <div class="bg-w-profile only-profile-info">
-            <div class="my-profile-account">
-                <img src="{{ profile.get_profile_picture_url}}">
-                <h3 class="full-name">{{ profile.first_name }} {{ profile.last_name }}</h3>
-                <p class="username">@{{ profile.first_name.lower }}{{ profile.pk }}{{ profile.pk }}</p>
-                <p class="descr-profile"> {{ profile.description }} </p>
-            </div>
-            <div class="bg-small">
-                <div class="bins">
-                    <!-- If it is your profile-->
-                    <a href="{% url 'index' %}" class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i> Report</a>
+{% block  main_content %}
+    <main>
+        <div class="empty-space1 noselect"></div>
+        <div class="con-res">
+            <div class="bg-w-profile only-profile-info">
+                <div class="my-profile-account">
+                    <img src="{{ profile.get_profile_picture_url }}">
+                    <h3 class="full-name">{{ profile.first_name }} {{ profile.last_name }}</h3>
+                    <p class="username">@{{ profile.first_name.lower }}{{ profile.pk }}{{ profile.pk }}</p>
+                    <p class="descr-profile"> {{ profile.description }} </p>
                 </div>
-            </div>
-            <div class="bg-large"></div>
-        </div>
-    </div>
-
-    <!--  <div class="recommend-card" id="recommend-card">
-        If no result/ no items
-        <div class="no-result"><h1>No Result</h1></div> -->
-            <div class="con-res">
-                <div class="bg-w-profile only-card-window">
-                    <div class="name-section-container">
-
-                        <h3 class="my-collection-title">Your Collection</h3>
-{#                        <select class="sort sort-favorite" name="sorting" id="sort">#}
-{#                            <option value="Newest" selected >Newest</option>#}
-{#                            <option value="Oldest">Oldest</option>#}
-{#                            <option value="Cheapest">Cheapest</option>#}
-{#                            <option value="Most expensive">Most expensive</option>#}
-{#                            <option value="By default">By default<option>#}
-{#                        </select>#}
+                <div class="bg-small">
+                    <div class="bins">
+                        <!-- If it is your profile-->
+                        <a href="{% url 'index' %}" class="for-profile-btn"><i class="fa-regular fa-pen-to-square"></i>
+                            Report</a>
                     </div>
-                    <div class="card-area">
-                        {% if cards %}
+                </div>
+                <div class="bg-large"></div>
+            </div>
+        </div>
+
+        <!--  <div class="recommend-card" id="recommend-card">
+            If no result/ no items
+            <div class="no-result"><h1>No Result</h1></div> -->
+        <div class="con-res">
+            <div class="bg-w-profile only-card-window">
+                <div class="name-section-container">
+
+                    <h3 class="my-collection-title">Your Collection</h3>
+                    {#                        <select class="sort sort-favorite" name="sorting" id="sort">#}
+                    {#                            <option value="Newest" selected >Newest</option>#}
+                    {#                            <option value="Oldest">Oldest</option>#}
+                    {#                            <option value="Cheapest">Cheapest</option>#}
+                    {#                            <option value="Most expensive">Most expensive</option>#}
+                    {#                            <option value="By default">By default<option>#}
+                    {#                        </select>#}
+                </div>
+                <div class="card-area">
+                    {% if cards %}
                         {% for card in cards %}
 
 
@@ -51,10 +52,10 @@
                             </div>
 
                         {% endfor %}
-                        {% endif %}
+                    {% endif %}
 
-                    </div>
                 </div>
             </div>
-</main>
+        </div>
+    </main>
 {% endblock %}

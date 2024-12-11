@@ -25,24 +25,18 @@
                                     <li class="status-card">Liked</li>
                                 </div>
                                 <li class="title-card">{{ f.card.title }}</li>
-                                <ul class="seller-info">
-                                    <img src="{{ f.card.owner.profile.get_profile_picture_url }}" class="seller-image"
-                                         alt="Seller Image">
-                                    <div class="seller-contact">
-                                        <li class="seller-name">{{ f.card.owner.profile.first_name }}</li>
-                                        <li class="seller-time-publication">{{ f.card.created_at }}</li>
-                                    </div>
-                                </ul>
+
                             </div>
-                        </ul>
-                    </a>
-                        <form method="post" action="{% url 'remove_from_favorites' f.card.id %}">
+                            <form method="post" action="{% url 'remove_from_favorites' f.card.id %}">
                     <span>
                 {% csrf_token %}
-                <button class="cancel-btn" type="submit"> Dislike </button>
+                <button class="dislike-btn cancel-btn" type="submit"> Dislike </button>
                     </span>
-                        </form>
-                    
+                            </form>
+                        </ul>
+                    </a>
+
+
 
                 {% endfor %}
             </div>

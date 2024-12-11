@@ -1,16 +1,17 @@
 {% extends 'base.html' %}
 {% block main_content %}
     <main>
-    <div class="container-below-navbar">
-        <form action="{% url 'register' %}" id="registration-form" class="form-container form-cont-style" method="post">
-            <h1 class="reg-title">Registration</h1>
-           {{ form }}
-            <button type="submit" class="submit-button">Registration</button>
-            {% csrf_token %}
-            <div class="signin">
-                <p> Already have an account?<a href="{% url 'login' %}"> Sign in</a></p>
-            </div>
-        </form>
-    </div>
+        <div class="container-below-navbar">
+            <form action="{% url 'register' %}" id="registration-form" class="form-container form-cont-style"
+                  method="post">
+                <h1 class="reg-title">Registration</h1>
+                {{ form }}
+                <button type="submit" class="submit-button">Registration</button>
+                {% csrf_token %}
+                <div class="signin">
+                    <p> Already have an account?<a href="{% url 'login' %}"> Sign in</a></p>
+                </div>
+            </form>
+        </div>
     </main>
 {% endblock %}
