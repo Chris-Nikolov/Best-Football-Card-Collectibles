@@ -23,9 +23,14 @@ class PurchaseView(LoginRequiredMixin, View):
         if form.is_valid():
             user = request.user
             profile = user.profile
+            card = Card.objects.get(id=card_id)
 
             if not profile.phone_number or not profile.address or not profile.first_name or not profile.last_name:
                 messages.error(request, "Please add personal information to your profile to complete this request.")
+                return redirect('index')
+
+            if not card.is_approved:
+                messages.error(request, "This card is not approved.")
                 return redirect('index')
 
             notification = form.save(commit=False)
@@ -42,38 +47,6 @@ class PurchaseView(LoginRequiredMixin, View):
         card = Card.objects.get(id=card_id)
         return render(request, 'notifications/purchase-card.html', {'form': form, 'card': card})
 
-    class PurchaseView(View):
-        def get(self, request, card_id):
-            form = NotificationForm()
-            card = Card.objects.get(id=card_id)
-            return render(request, 'notifications/purchase-card.html', {'form': form, 'card': card})
-
-        def post(self, request, card_id):
-            form = NotificationForm(request.POST)
-            if form.is_valid():
-                user = request.user
-                profile = user.profile
-
-                if not profile.phone_number or not profile.address or not profile.first_name or not profile.last_name:
-                    messages.error(request, "Please add personal information to your profile to complete this request.")
-                    return redirect('index')
-                card_title = Card.objects.get(id=card_id).title
-                price = Card.objects.get(id=card_id).price
-                notification = form.save(commit=False)
-                notification.sender = user
-                notification.receiver = Card.objects.get(id=card_id).owner
-                notification.card = Card.objects.get(id=card_id)
-                notification.title = (f"A buyer has arrived! "
-                                      f"{user.profile.first_name} {user.profile.last_name} "
-                                      f"wants to buy {card_title} for {price}$.")
-                notification.content = (f"Contacts: Phone number: {user.profile.phone_number} "
-                                        f"Address: {user.profile.address}")
-                notification.save()
-                messages.success(request, "Request is successfully sent.")
-                return redirect('index')
-            card = Card.objects.get(id=card_id)
-            return render(request, 'notifications/purchase-card.html', {'form': form, 'card': card})
-
 
 class NegotiationView(LoginRequiredMixin, View):
     def get(self, request, card_id):
@@ -86,10 +59,16 @@ class NegotiationView(LoginRequiredMixin, View):
         if form.is_valid():
             user = request.user
             profile = user.profile
+            card = Card.objects.get(id=card_id)
 
             if not profile.phone_number or not profile.first_name or not profile.last_name:
                 messages.error(request, "Please add number and name to your profile to complete this request.")
                 return redirect('index')
+
+            if not card.is_approved:
+                messages.error(request, "This card is not approved.")
+                return redirect('index')
+
             card_title = Card.objects.get(id=card_id).title
             card_price = Card.objects.get(id=card_id).price
             notification = form.save(commit=False)
