@@ -9,7 +9,7 @@ from djangoBestFootballCardCollectibles.cards.models import Card
 class Notifications(models.Model):
     receiver = models.ForeignKey(BFCCUser, on_delete=models.CASCADE, related_name='received_notifications')
     sender = models.ForeignKey(BFCCUser, on_delete=models.CASCADE, related_name='sent_notifications')
-    card = models.ForeignKey(Card, on_delete=models.DO_NOTHING)
+    card = models.ForeignKey(Card, on_delete=models.CASCADE)
     date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=200)
     content = models.TextField()
